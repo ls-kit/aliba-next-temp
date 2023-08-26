@@ -1,7 +1,7 @@
 import React from "react";
 import { Table } from "react-bootstrap";
 
-const ProductDetailsRight = () => {
+const ProductDetailsRight = ({Id,VendorScore}) => {
     return (
         <div className="col-lg-4 rtl-text">
             <div>
@@ -61,6 +61,31 @@ const ProductDetailsRight = () => {
                     </div>
                 </div>
 
+                <Table class="table table-bordered mt-3">
+                    <tbody>
+                        <tr>
+                            <td className="p-2 text-center">Product code</td>
+                            <td className="p-2 text-center">{Id}</td>
+                            
+                        </tr>
+                        <tr>
+                            <td className="p-2 text-center">Seller Score</td>
+                            <td className="p-2 text-center">{VendorScore}</td>
+                            
+                        </tr>
+                        
+                    </tbody>
+                    {/* <tbody>
+                        <tr>
+                            <td className="p-2 text-center">Wheat</td>
+                            <td className="p-2 text-center">Good</td>
+                            <td className="p-2 text-center">
+                                <button className="btn btn-solid btn-sm">Add to cart</button>
+                                
+                            </td>
+                        </tr>
+                    </tbody> */}
+                </Table>
 
                 {/* <button className="btn btn-solid p-2 text-center w-100">Add to cart</button> */}
             </div>

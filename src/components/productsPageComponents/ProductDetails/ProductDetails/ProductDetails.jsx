@@ -16,6 +16,7 @@ const ProductDetails = ({ data }) => {
         IsSellAllowed,
         Attributes,
         ConfiguredItems,
+        VendorScore
     } = data?.data?.item || {};
     const [previewImg, setPreviewImg] = useState();
 
@@ -68,7 +69,7 @@ const ProductDetails = ({ data }) => {
                             Title={Title}
                             Attributes={Attributes}
                         />
-                        <ProductDetailsRight />
+                        <ProductDetailsRight Id={Id} VendorScore={VendorScore} />
                     </div>
                 </div>
             </div>
