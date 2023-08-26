@@ -1,8 +1,9 @@
-'use client'
+"use client";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import Rating from "react-rating";
-import ProductDetailsInformation from "../ProductDetailsInformation/ProductDetailsInformation";
+import ProductDetailsMiddle from "../ProductDetailsInformation/ProductDetailsMiddle";
+import ProductDetailsRight from "../ProductDetailsRight/ProductDetailsRight";
 
 const ProductDetails = ({ data }) => {
     console.log(data);
@@ -62,10 +63,12 @@ const ProductDetails = ({ data }) => {
                                 </div>
                             </div>
                         </div>
-                        <ProductDetailsInformation FeaturedValues={FeaturedValues} Title={Title} Attributes=
-{Attributes
-} />
-                        <div className="col-lg-4 rtl-text"></div>
+                        <ProductDetailsMiddle
+                            FeaturedValues={FeaturedValues}
+                            Title={Title}
+                            Attributes={Attributes}
+                        />
+                        <ProductDetailsRight />
                     </div>
                 </div>
             </div>

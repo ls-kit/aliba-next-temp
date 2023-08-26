@@ -3,7 +3,7 @@ import React from "react";
 import Rating from "react-rating";
 import ProductVariant from './ProductVariant';
 
-const ProductDetailsInformation = ({ FeaturedValues, Title, Attributes
+const ProductDetailsMiddle = ({ FeaturedValues, Title, Attributes
 }) => {
     const rating = FeaturedValues?.find((featureValue) => featureValue.Name === "rating");
     // console.log(rating);
@@ -29,4 +29,4 @@ const ProductDetailsInformation = ({ FeaturedValues, Title, Attributes
     );
 };
 
-export default ProductDetailsInformation;
+export default ProductDetailsMiddle;

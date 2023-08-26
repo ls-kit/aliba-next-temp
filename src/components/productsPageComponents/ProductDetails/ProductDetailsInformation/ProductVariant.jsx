@@ -62,7 +62,7 @@ const ProductVariant = ({ Attributes }) => {
                         <ProductVariantRow/>
                     </tbody>
                 </Table>
-                <button className="btn btn-solid p-2 text-center w-100">Add to cart</button>
+                
             </div>
             <div className="my-5">
                 <div className="w-100 d-flex flex-column justify-content-center align-items-center border">
@@ -99,12 +99,23 @@ const ProductVariant = ({ Attributes }) => {
                         </div>
                     </div>
                 </div>
+                
             </div>
+            <div className="my-5">
+            <div className="w-100 d-flex flex-column justify-content-between align-items-center">
+                    <button className="btn btn-solid btn-sm p-1 text-sm text-center w-100 rounded-pill"> <i class="fa-solid fa-heart"></i> Add to wishlist</button>
+                    <button className="btn btn-solid btn-sm p-1 text-sm text-center w-100 rounded-pill my-1"> <i class="fa-solid fa-cart-flatbed"></i> Add to cart</button>
+                    <button className="btn btn-solid btn-sm p-1 text-sm text-center w-100 rounded-pill"> <i class="fa-solid fa-money-bill-1-wave"></i> Buy now</button>
+                </div>
+                
+            </div>
+            
             <div className="my-5 border">
                 <h5 className="text-danger text-center p-2">
                     আপনার পণ্য নির্বাচন সঠিক না হলে আলিবা ইন্টারন্যাশনাল তা সংশোধন করার অধিকার রাখে।
                 </h5>
             </div>
+            
         </div>
     );
 };
