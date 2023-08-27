@@ -14,10 +14,10 @@ const ProductDetailsTab = ({id,vendorId}) => {
     return (
         <section className="tab-product m-0">
             <div className="container">
-                <div className="row">
+                <div className="row justify-content-center align-items-center">
                     <div className="col-sm-12 col-lg-12">
-                        <Tab.Container activeKey={activeTab} onSelect={handleTabSelect}>
-                            <Nav variant="tabs" className="nav-material" id="top-tab">
+                        <Tab.Container activeKey={activeTab} onSelect={handleTabSelect} className='mx-auto' >
+                            <Nav variant="tabs" className="nav-material justify-content-center" id="top-tab">
                                 <Nav.Item>
                                     <Nav.Link eventKey="shipping">
                                         <i className="icofont icofont-ui-home"></i>Shipping And Delivery
