@@ -23,11 +23,11 @@ const ProductDetailsTab = ({id,vendorId}) => {
                                         <i className="icofont icofont-ui-home"></i>Shipping And Delivery
                                     </Nav.Link>
                                 </Nav.Item>
-                                <Nav.Item>
+                                {/* <Nav.Item>
                                     <Nav.Link eventKey="additional">
                                         <i className="icofont icofont-man-in-glasses"></i>Additional Information
                                     </Nav.Link>
-                                </Nav.Item>
+                                </Nav.Item> */}
                                 <Nav.Item>
                                     <Nav.Link eventKey="seller">
                                         <i className="icofont icofont-contacts"></i>Seller Info
@@ -44,10 +44,10 @@ const ProductDetailsTab = ({id,vendorId}) => {
                                     {/* Shipping and Delivery content */}
                                     <ShippingInformation/>
                                 </Tab.Pane>
-                                <Tab.Pane eventKey="additional">
-                                    {/* Additional Information content */}
+                                {/* <Tab.Pane eventKey="additional">
                                     
-                                </Tab.Pane>
+                                    
+                                </Tab.Pane> */}
                                 <Tab.Pane eventKey="seller">
                                     {/* Seller Info content */}
                                     <SellerInformation vendorId={vendorId} />
