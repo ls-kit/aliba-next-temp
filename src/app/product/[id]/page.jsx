@@ -1,7 +1,7 @@
 "use client";
 
 import ProductDetails from "@/components/productsPageComponents/ProductDetails/ProductDetails/ProductDetails";
-import ProductDetailsTab from "@/components/productsPageComponents/ProductDetails/ProductDetailsTab";
+import ProductDetailsTab from "@/components/productsPageComponents/ProductDetails/ProductDetailsTab/ProductDetailsTab";
 import RelatedProducts from "@/components/productsPageComponents/ProductDetails/RelatedProducts";
 import BreadCrumb from "@/components/shared/Breadcrumb/BreadCrumb";
 import { useGetSingleProductQuery } from "@/redux/api/singleProductApi/singleProductApi";
@@ -17,7 +17,7 @@ const SingleProduct = ({ params }) => {
         <div>
             {/* <BreadCrumb /> */}
             <ProductDetails data={data} />
-            <ProductDetailsTab data={data} />
+            <ProductDetailsTab  id={params.id} />
             <RelatedProducts />
         </div>
     );
