@@ -11,13 +11,13 @@ const SingleProduct = ({ params }) => {
     // console.log(params);
     const { data, isLoading, isError, error } = useGetSingleProductQuery(`/${params.id}`);
 
-    // console.log(data);
+    console.log(data);
     
     return (
         <div>
             {/* <BreadCrumb /> */}
             <ProductDetails data={data} />
-            <ProductDetailsTab  id={params.id} />
+            <ProductDetailsTab vendorId={data?.data?.item?.VendorId} id={params.id} />
             <RelatedProducts />
         </div>
     );

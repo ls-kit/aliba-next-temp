@@ -2,9 +2,10 @@ import {useState} from "react";
 import { Nav, Tab } from "react-bootstrap";
 import ShippingInformation from "./ShippingInformation";
 import ProductDescription from "./ProductDescription";
+import SellerInformation from "./SellerInformation";
 
-const ProductDetailsTab = ({id}) => {
-    console.log(id)
+const ProductDetailsTab = ({id,vendorId}) => {
+    console.log(vendorId)
     const [activeTab, setActiveTab] = useState("shipping");
 
     const handleTabSelect = (tabKey) => {
@@ -49,6 +50,7 @@ const ProductDetailsTab = ({id}) => {
                                 </Tab.Pane>
                                 <Tab.Pane eventKey="seller">
                                     {/* Seller Info content */}
+                                    <SellerInformation vendorId={vendorId} />
                                 </Tab.Pane>
                                 <Tab.Pane eventKey="description">
                                     {/* Description content */}
