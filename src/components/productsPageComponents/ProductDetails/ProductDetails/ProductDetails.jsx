@@ -20,7 +20,8 @@ const ProductDetails = ({ data }) => {
     } = data?.data?.item || {};
     const [previewImg, setPreviewImg] = useState();
 
-    // console.log(Pictures);
+    // console.log(Attributes);
+    // console.log(ConfiguredItems);
     useEffect(() => {
         if (Pictures) {
             const defaultImg = Pictures.find((picture) => picture.IsMain === true);
@@ -68,6 +69,7 @@ const ProductDetails = ({ data }) => {
                             FeaturedValues={FeaturedValues}
                             Title={Title}
                             Attributes={Attributes}
+                            ConfiguredItems={ConfiguredItems}
                         />
                         <ProductDetailsRight Id={Id} VendorScore={VendorScore} />
                     </div>

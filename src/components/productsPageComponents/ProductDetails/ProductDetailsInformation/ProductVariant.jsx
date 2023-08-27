@@ -4,17 +4,21 @@ import Image from "next/image";
 import React, { useState, useEffect, useRef } from "react";
 import { Table } from "react-bootstrap";
 import ProductVariantRow from "./ProductVariantRow";
+import useProductConfig from "@/hooks/productsDetails/useProductConfig";
+
 
 const ProductVariant = ({ Attributes }) => {
     const [selectColor, setSelectColor] = useState();
     const [shippingRate, setShippingRate] = useState();
     const rateRef = useRef()
     const { data: productTypes, isLoading, isError, error } = useGetProductTypeQuery()
+    const {colorTypes} = useProductConfig()
     
     const {productCategoryShippingRates} = productTypes?.data || {}
 
-    const colorImageHandler = (value) => {
+    const colorImageHandler = (value,Vid,Pid) => {
         setSelectColor(value);
+        colorTypes([{Vid,Pid}])
     };
 
     // console.log(productCategoryShippingRates);
@@ -29,7 +33,7 @@ const ProductVariant = ({ Attributes }) => {
                 <h4>COLOR: {selectColor} </h4>
                 {Attributes?.filter((attribute) => attribute.PropertyName === "Color")?.map(
                     (attr) => {
-                        const { MiniImageUrl, Value, Vid } = attr;
+                        const { MiniImageUrl, Value, Vid,Pid } = attr;
                         return (
                             <Image
                                 id="color-img"
@@ -41,7 +45,7 @@ const ProductVariant = ({ Attributes }) => {
                                 className={`m-1 rounded ${
                                     selectColor === Value ? "border border-danger" : "border"
                                 }`}
-                                onClick={() => colorImageHandler(Value)}
+                                onClick={() => colorImageHandler(Value,Vid,Pid)}
                             />
                         );
                     }

@@ -1,12 +1,25 @@
 'use client'
-import React from "react";
+import React,{useEffect} from "react";
 import Rating from "react-rating";
 import ProductVariant from './ProductVariant';
+import useProductConfig from "@/hooks/productsDetails/useProductConfig";
 
-const ProductDetailsMiddle = ({ FeaturedValues, Title, Attributes
+
+const ProductDetailsMiddle = ({ FeaturedValues, Title, Attributes,ConfiguredItems
 }) => {
+    const {productConfig} = useProductConfig()
     const rating = FeaturedValues?.find((featureValue) => featureValue.Name === "rating");
+
     // console.log(rating);
+    useEffect(() => {
+        
+        productConfig(Attributes,ConfiguredItems)
+    },[])
+
+    
+
+
+
 
     return (
         <div className="col-lg-4 rtl-text">
