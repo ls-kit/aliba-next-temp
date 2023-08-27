@@ -4,6 +4,7 @@ import MobileNavbar from "../MobileNavbar/MobileNavbar";
 import Link from "next/link";
 import { useGetGeneralsQuery } from "@/redux/api/generalApi/generalApi";
 import Image from "next/image";
+import { base } from "@/redux/api/apiEndpoints";
 
 const MainNavbar = () => {
     const { data: generalsData, isLoading, isError, error } = useGetGeneralsQuery();
@@ -441,7 +442,7 @@ const MainNavbar = () => {
                                     src={
                                         !isLoading &&
                                         generalsData &&
-                                        process.env.NEXT_PUBLIC_BASE_URL +
+                                        base +
                                             parsedGeneralData?.frontend_logo_menu
                                     }
                                     alt="logo"

@@ -1,4 +1,5 @@
 const endPoints = {
+    base:"https://admin.alibainternational.com/",
     banners: "/banners",
     general: "/general",
     topProducts: "/get-section-products/section_one",
@@ -9,4 +10,4 @@ const endPoints = {
     sellerInformation: "/product-seller-information",
 };
 
-export const { banners, general, topProducts, singleProduct,productType, shippingInformation,productDescription,sellerInformation } = endPoints;
+export const { base,banners, general, topProducts, singleProduct,productType, shippingInformation,productDescription,sellerInformation } = endPoints;

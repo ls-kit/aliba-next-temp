@@ -8,6 +8,7 @@ import "swiper/css";
 import { useGetBannersQuery } from "@/redux/api/bannerApi/bannerApi";
 import BannerSkeleton from "@/components/shared/Loader/BannerSkeleton";
 import Image from "next/image";
+import { base } from "@/redux/api/apiEndpoints";
 
 const BannerSlider = () => {
     const { data: bannersData, isLoading, isError, endpointName, error } = useGetBannersQuery();
@@ -73,7 +74,7 @@ const BannerSlider = () => {
                                         <Image
                                             variant="top"
                                             src={
-                                                process.env.NEXT_PUBLIC_BASE_URL +
+                                                base +
                                                 bannerData.post_thumb
                                             }
                                             alt="banner-image"
