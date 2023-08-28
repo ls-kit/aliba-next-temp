@@ -28,8 +28,8 @@ const ProductDetails = ({ data }) => {
     const colorAttributes = getColorAttributes(ConfigAttributes);
     const sizeAttributes = getSizeAttributes(ConfigAttributes);
     const singleAttribute = getProductGroupedAttributes(ConfigAttributes)
-    const productVarient = getVariantData(colorProp, data?.data?.item)
-    console.log(productVarient)
+    const productVariant = getVariantData(colorProp, data?.data?.item)
+    // console.log(productVariant)
     // console.log(colorProp)
     // console.log(ConfigAttributes)
 
@@ -85,6 +85,7 @@ const ProductDetails = ({ data }) => {
                             ConfiguredItems={ConfiguredItems}
                             colorAttributes={colorAttributes}
                             setColorProp={setColorProp}
+                            productVariant={productVariant}
 
                         />
                         <ProductDetailsRight Id={Id} VendorScore={VendorScore} />

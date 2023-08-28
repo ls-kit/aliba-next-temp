@@ -7,9 +7,9 @@ import ProductVariantRow from "./ProductVariantRow";
 // import useProductConfig from "@/helpers/productsDetails/productHelpers";
 
 
-const ProductVariant = ({ colorAttributes,  setColorProp }) => {
+const ProductVariant = ({ colorAttributes,  setColorProp,productVariant }) => {
     const [selectColor, setSelectColor] = useState();
-    // console.log(colorAttributes)
+    console.log(productVariant)
     const [shippingRate, setShippingRate] = useState();
     const rateRef = useRef()
     const { data: productTypes, isLoading, isError, error } = useGetProductTypeQuery()
@@ -53,7 +53,7 @@ const ProductVariant = ({ colorAttributes,  setColorProp }) => {
                     }
                 )}
             </div>
-            <div className="my-5">
+            {productVariant.length>0?<div className="my-5">
                 <Table class="table table-bordered">
                     <thead>
 
@@ -64,12 +64,19 @@ const ProductVariant = ({ colorAttributes,  setColorProp }) => {
                         </tr>
                     </thead>
                     <tbody>
-
-                        <ProductVariantRow/>
+                        {productVariant?.map(variant => {
+                        console.log(variant)
+                       return <ProductVariantRow key={variant.element.Id} variant={ variant} />
+                    })}
                     </tbody>
                 </Table>
                 
-            </div>
+            </div>:<div className="my-5 border">
+                <h5 className="text-danger text-center p-2">
+                    পণ্যের একটি কালার সিলেক্ট করুন
+                </h5>
+            </div>}
+            
             <div className="my-5">
                 <div className="w-100 d-flex flex-column justify-content-center align-items-center border">
                     <div className="w-100">

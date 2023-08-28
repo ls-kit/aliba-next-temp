@@ -5,8 +5,7 @@ import ProductVariant from './ProductVariant';
 // import useProductConfig from "@/helpers/productsDetails/productHelpers";
 
 
-const ProductDetailsMiddle = ({ FeaturedValues, Title, Attributes, colorAttributes
-    , setColorProp}) => {
+const ProductDetailsMiddle = ({ FeaturedValues, Title, Attributes, colorAttributes, productVariant, setColorProp}) => {
     // const {productConfig} = useProductConfig()
     const rating = FeaturedValues?.find((featureValue) => featureValue.Name === "rating");
 
@@ -37,7 +36,7 @@ const ProductDetailsMiddle = ({ FeaturedValues, Title, Attributes, colorAttribut
                 </div>
             </div>
             <hr className="my-3"/>
-            <ProductVariant Attributes ={Attributes} colorAttributes={colorAttributes}  setColorProp={setColorProp} />
+            <ProductVariant Attributes ={Attributes} colorAttributes={colorAttributes}  setColorProp={setColorProp} productVariant={productVariant} />
         </div>
     );
 };

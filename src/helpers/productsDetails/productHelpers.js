@@ -76,7 +76,7 @@ export const ConfiguratorAttributes = (Product) => {
 };
   
 export const getVariantData = (colorProp, product) => {
-    console.log(product)
+    // console.log(product)
     const matchedData =[]
     product?.ConfiguredItems?.map(attr => {
         // console.log(attr)
@@ -84,19 +84,24 @@ export const getVariantData = (colorProp, product) => {
              matchedData.push(attr)
          }
    })
-    console.log(matchedData)
+    // console.log(matchedData)
 
     const finalData = [];
 
 for (const element of matchedData) {
   const { Pid, Vid } = element?.Configurators[1];
-  const matchingObjects = product?.Attributes.filter(
-    size => size.Pid === Pid && size.Vid === Vid
+  product?.Attributes.filter(
+      size => {
+          if (size.Pid === Pid && size.Vid === Vid) {
+              
+              finalData.push({element,size});
+          }
+      }
+      
   );
 
-  finalData.push(...matchingObjects);
-    }
-    console.log(finalData)
 
-    return {matchedData, finalData}
+    }
+
+    return  finalData
 }

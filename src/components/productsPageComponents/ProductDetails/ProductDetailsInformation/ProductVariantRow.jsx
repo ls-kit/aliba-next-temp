@@ -1,6 +1,10 @@
 import React, { useRef, useState } from "react";
 
-const ProductVariantRow = () => {
+const ProductVariantRow = ({variant}) => {
+    console.log(variant)
+    const {Value} = variant?.size
+    const { Price, Quantity } = variant?.element
+    
     const [productQuantity, setProductQuantity] = useState(0);
     const quantityRef = useRef();
 
@@ -13,8 +17,8 @@ const ProductVariantRow = () => {
 
     return (
         <tr>
-            <td className="p-2 text-center">Wheat</td>
-            <td className="p-2 text-center">Good</td>
+            <td className="p-2 text-center">{Value}</td>
+            <td className="p-2 text-center">{Price?.MarginPrice}</td>
             <td className="p-2 text-center">
                 {/* <button className="btn btn-solid btn-sm">Add to cart</button> */}
                 <div className="d-flex mb-4 justify-content-center align-items-center">
@@ -33,6 +37,11 @@ const ProductVariantRow = () => {
                     <button className="btn btn-solid btn-sm btn-xs" onClick={increaseQuantity}>
                         <i className="fas fa-plus"></i>
                     </button>
+                </div>
+                <div>
+                    <p>
+                        {Quantity}
+                    </p>
                 </div>
             </td>
         </tr>
