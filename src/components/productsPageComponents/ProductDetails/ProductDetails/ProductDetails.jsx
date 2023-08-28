@@ -45,7 +45,7 @@ const ProductDetails = ({ data }) => {
     }, [Pictures]);
 
     return (
-        <section>
+        <section className="py-0">
             <div>
                 <div className="container">
                     <div className="row">

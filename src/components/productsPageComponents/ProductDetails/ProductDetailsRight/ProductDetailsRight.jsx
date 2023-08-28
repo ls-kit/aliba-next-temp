@@ -5,6 +5,11 @@ const ProductDetailsRight = ({Id,VendorScore}) => {
     return (
         <div className="col-lg-4 rtl-text">
             <div>
+            <div className=" border">
+                <h5 className="text-danger text-center p-2">
+                    আপনার পণ্য নির্বাচন সঠিক না হলে আলিবা ইন্টারন্যাশনাল তা সংশোধন করার অধিকার রাখে।
+                </h5>
+            </div>
                 <div className="w-100 flex flex-row align-items-center justify-content-between border">
                         
                     <div className="p-2 text-center" style={{ backgroundColor:"#FF4C3B", color:"white" }} >

@@ -53,8 +53,8 @@ const ProductVariant = ({ colorAttributes,  setColorProp,productVariant }) => {
                     }
                 )}
             </div>
-            {productVariant.length>0?<div className="my-5">
-                <Table class="table table-bordered">
+            {productVariant.length>0?<div className="my-5 overflow-y-auto" style={{ height:"50vh" }} >
+                <Table class="table table-bordered ">
                     <thead>
 
                         <tr>
@@ -123,11 +123,7 @@ const ProductVariant = ({ colorAttributes,  setColorProp,productVariant }) => {
                 
             </div>
             
-            <div className="my-5 border">
-                <h5 className="text-danger text-center p-2">
-                    আপনার পণ্য নির্বাচন সঠিক না হলে আলিবা ইন্টারন্যাশনাল তা সংশোধন করার অধিকার রাখে।
-                </h5>
-            </div>
+            
             
         </div>
     );
