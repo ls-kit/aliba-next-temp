@@ -7,8 +7,9 @@ import ProductVariantRow from "./ProductVariantRow";
 // import useProductConfig from "@/helpers/productsDetails/productHelpers";
 
 
-const ProductVariant = ({ Attributes }) => {
+const ProductVariant = ({ colorAttributes,  setColorProp }) => {
     const [selectColor, setSelectColor] = useState();
+    // console.log(colorAttributes)
     const [shippingRate, setShippingRate] = useState();
     const rateRef = useRef()
     const { data: productTypes, isLoading, isError, error } = useGetProductTypeQuery()
@@ -19,6 +20,7 @@ const ProductVariant = ({ Attributes }) => {
     const colorImageHandler = (value,Vid,Pid) => {
         setSelectColor(value);
         // colorTypes([{Vid,Pid}])
+        setColorProp({Pid,Vid})
     };
 
     // console.log(productCategoryShippingRates);
@@ -31,7 +33,7 @@ const ProductVariant = ({ Attributes }) => {
         <div className="w-100 flex flex-col justify-content-center align-items-center ">
             <div className="flex flex-row justify-content-center align-items-center">
                 <h4>COLOR: {selectColor} </h4>
-                {Attributes?.filter((attribute) => attribute.PropertyName === "Color")?.map(
+                {colorAttributes?.map(
                     (attr) => {
                         const { MiniImageUrl, Value, Vid,Pid } = attr;
                         return (

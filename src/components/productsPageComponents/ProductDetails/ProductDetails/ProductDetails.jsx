@@ -4,11 +4,11 @@ import React, { useEffect, useState } from "react";
 import Rating from "react-rating";
 import ProductDetailsMiddle from "../ProductDetailsInformation/ProductDetailsMiddle";
 import ProductDetailsRight from "../ProductDetailsRight/ProductDetailsRight";
-import { ConfiguratorAttributes, getProductAttributes,getColorAttributes, getSizeAttributes,getProductGroupedAttributes} from "@/helpers/productsDetails/productHelpers";
+import { ConfiguratorAttributes, getProductAttributes,getColorAttributes, getSizeAttributes,getProductGroupedAttributes,getVariantData} from "@/helpers/productsDetails/productHelpers";
 
 const ProductDetails = ({ data }) => {
     // console.log(data);
-    const {item} = data?.data || {}
+    // const {item} = data?.data || {}
     const {
         Title,
         Id,
@@ -19,15 +19,19 @@ const ProductDetails = ({ data }) => {
         Attributes,
         ConfiguredItems,
         VendorScore
-    } = item || {};
+    } = data?.data?.item || {};
     const [previewImg, setPreviewImg] = useState();
+    const [colorProp, setColorProp] = useState();
 
-    const Attr = getProductAttributes(item)
-    const ConfigAttributes = ConfiguratorAttributes(item);
+    const Attr = getProductAttributes(data?.data?.item)
+    const ConfigAttributes = ConfiguratorAttributes(data?.data?.item);
     const colorAttributes = getColorAttributes(ConfigAttributes);
     const sizeAttributes = getSizeAttributes(ConfigAttributes);
     const singleAttribute = getProductGroupedAttributes(ConfigAttributes)
-    console.log(singleAttribute)
+    const productVarient = getVariantData(colorProp, data?.data?.item)
+    // console.log(Attr)
+    // console.log(colorProp)
+    // console.log(ConfigAttributes)
 
     // console.log(Attributes);
     // console.log(ConfiguredItems);
@@ -79,6 +83,9 @@ const ProductDetails = ({ data }) => {
                             Title={Title}
                             Attributes={Attributes}
                             ConfiguredItems={ConfiguredItems}
+                            colorAttributes={colorAttributes}
+                            setColorProp={setColorProp}
+
                         />
                         <ProductDetailsRight Id={Id} VendorScore={VendorScore} />
                     </div>

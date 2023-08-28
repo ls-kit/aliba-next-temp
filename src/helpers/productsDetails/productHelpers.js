@@ -23,7 +23,8 @@ export const is_colour = (words) => {
       return true;
     }
     return false;
-  };
+};
+  
 
   export const getProductGroupedAttributes = (Attributes) => {
     if (!_.isEmpty(Attributes) && _.isArray(Attributes)) {
@@ -34,8 +35,8 @@ export const is_colour = (words) => {
 export const getProductAttributes = (product) => {
     // console.log(product)
     if (_.isObject(product)) {
-      const Attributes = product.Attributes;
-      return _.isArray(Attributes) ? Attributes : [];
+      const ConfiguredItems = product.ConfiguredItems;
+      return _.isArray(ConfiguredItems) ? ConfiguredItems : [];
     }
     return [];
   };
@@ -66,9 +67,22 @@ export const getSizeAttributes = (Attributes) => {
   };
   
 export const ConfiguratorAttributes = (Product) => {
-    const Attributes = getProductAttributes(Product);
-    if (Attributes.length > 0) {
+    const Attributes = Product?.Attributes;
+    // console.log(Attributes)
+    if (Attributes?.length > 0) {
       return Attributes.filter((filter) => filter.IsConfigurator === true);
     }
     return [];
-  };
+};
+  
+export const getVariantData = (colorProp, product) => {
+    // console.log(product)
+    const matchedData =[]
+    product?.ConfiguredItems?.map(attr => {
+        // console.log(attr)
+        if (_.isEqual(attr?.Configurators[0], colorProp)) {
+             matchedData.push(attr?.Configurators[1])
+         }
+   })
+    console.log(matchedData)
+}
