@@ -7,7 +7,7 @@ const SellerInformation = ({vendorId}) => {
 
     const {data:sellerInformation, isLoading, isError, error}=useGetSellerInformationQuery(vendorId)
 
-    console.log(sellerInformation?.data?.VendorInfo)
+    // console.log(sellerInformation?.data?.VendorInfo)
 
     const {Name, ShopName, Scores,  } = sellerInformation?.data.VendorInfo || {};
     return (

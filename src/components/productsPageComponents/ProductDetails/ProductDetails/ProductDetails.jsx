@@ -4,9 +4,11 @@ import React, { useEffect, useState } from "react";
 import Rating from "react-rating";
 import ProductDetailsMiddle from "../ProductDetailsInformation/ProductDetailsMiddle";
 import ProductDetailsRight from "../ProductDetailsRight/ProductDetailsRight";
+import { ConfiguratorAttributes, getProductAttributes,getColorAttributes, getSizeAttributes,getProductGroupedAttributes} from "@/helpers/productsDetails/productHelpers";
 
 const ProductDetails = ({ data }) => {
-    console.log(data);
+    // console.log(data);
+    const {item} = data?.data || {}
     const {
         Title,
         Id,
@@ -17,8 +19,15 @@ const ProductDetails = ({ data }) => {
         Attributes,
         ConfiguredItems,
         VendorScore
-    } = data?.data?.item || {};
+    } = item || {};
     const [previewImg, setPreviewImg] = useState();
+
+    const Attr = getProductAttributes(item)
+    const ConfigAttributes = ConfiguratorAttributes(item);
+    const colorAttributes = getColorAttributes(ConfigAttributes);
+    const sizeAttributes = getSizeAttributes(ConfigAttributes);
+    const singleAttribute = getProductGroupedAttributes(ConfigAttributes)
+    console.log(singleAttribute)
 
     // console.log(Attributes);
     // console.log(ConfiguredItems);

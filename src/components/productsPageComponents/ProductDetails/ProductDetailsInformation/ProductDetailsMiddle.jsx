@@ -2,19 +2,19 @@
 import React,{useEffect} from "react";
 import Rating from "react-rating";
 import ProductVariant from './ProductVariant';
-import useProductConfig from "@/hooks/productsDetails/useProductConfig";
+// import useProductConfig from "@/helpers/productsDetails/productHelpers";
 
 
 const ProductDetailsMiddle = ({ FeaturedValues, Title, Attributes,ConfiguredItems
 }) => {
-    const {productConfig} = useProductConfig()
+    // const {productConfig} = useProductConfig()
     const rating = FeaturedValues?.find((featureValue) => featureValue.Name === "rating");
 
     // console.log(rating);
-    useEffect(() => {
+    // useEffect(() => {
         
-        productConfig(Attributes,ConfiguredItems)
-    },[])
+    //     productConfig(Attributes,ConfiguredItems)
+    // },[])
 
     
 

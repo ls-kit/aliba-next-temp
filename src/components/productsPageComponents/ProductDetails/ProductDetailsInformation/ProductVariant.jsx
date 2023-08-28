@@ -4,7 +4,7 @@ import Image from "next/image";
 import React, { useState, useEffect, useRef } from "react";
 import { Table } from "react-bootstrap";
 import ProductVariantRow from "./ProductVariantRow";
-import useProductConfig from "@/hooks/productsDetails/useProductConfig";
+// import useProductConfig from "@/helpers/productsDetails/productHelpers";
 
 
 const ProductVariant = ({ Attributes }) => {
@@ -12,13 +12,13 @@ const ProductVariant = ({ Attributes }) => {
     const [shippingRate, setShippingRate] = useState();
     const rateRef = useRef()
     const { data: productTypes, isLoading, isError, error } = useGetProductTypeQuery()
-    const {colorTypes} = useProductConfig()
+    // const {colorTypes} = useProductConfig()
     
     const {productCategoryShippingRates} = productTypes?.data || {}
 
     const colorImageHandler = (value,Vid,Pid) => {
         setSelectColor(value);
-        colorTypes([{Vid,Pid}])
+        // colorTypes([{Vid,Pid}])
     };
 
     // console.log(productCategoryShippingRates);
