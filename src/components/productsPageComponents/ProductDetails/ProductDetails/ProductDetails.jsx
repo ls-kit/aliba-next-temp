@@ -29,7 +29,7 @@ const ProductDetails = ({ data }) => {
     const sizeAttributes = getSizeAttributes(ConfigAttributes);
     const singleAttribute = getProductGroupedAttributes(ConfigAttributes)
     const productVarient = getVariantData(colorProp, data?.data?.item)
-    // console.log(Attr)
+    console.log(productVarient)
     // console.log(colorProp)
     // console.log(ConfigAttributes)
 
