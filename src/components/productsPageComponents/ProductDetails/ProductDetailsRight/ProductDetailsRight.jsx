@@ -37,6 +37,11 @@ const ProductDetailsRight = ({Id,VendorScore}) => {
                             
                         </tr>
                         <tr>
+                            <td className="p-2 text-center">Shipping cost (based on weight) :</td>
+                            <td className="p-2 text-center">0.000 kg ( আনুমানিক)</td>
+                            
+                        </tr>
+                        <tr>
                             <td className="p-2 text-center">China Local Shipping charge:</td>
                             <td className="p-2 text-center">৳ 0.00</td>
                             

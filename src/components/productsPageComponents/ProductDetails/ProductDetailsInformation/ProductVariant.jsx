@@ -53,9 +53,10 @@ const ProductVariant = ({ colorAttributes,  setColorProp,productVariant }) => {
                     }
                 )}
             </div>
-            {productVariant.length>0?<div className="my-5 overflow-y-auto" style={{ height:"50vh" }} >
+            {productVariant.length>0?
+            <div className="my-5 overflow-y-auto" style={{ height:"50vh" }} >
                 <Table class="table table-bordered ">
-                    <thead>
+                    <thead >
 
                         <tr>
                             <th className="p-2 text-center">Size/Weight(g)</th>
