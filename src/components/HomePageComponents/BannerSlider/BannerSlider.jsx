@@ -73,10 +73,7 @@ const BannerSlider = () => {
                                     >
                                         <Image
                                             variant="top"
-                                            src={
-                                                base +
-                                                bannerData.post_thumb
-                                            }
+                                            src={base + bannerData.post_thumb}
                                             alt="banner-image"
                                             fill
                                             priority={true}

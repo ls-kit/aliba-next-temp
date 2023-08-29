@@ -1,21 +1,22 @@
-import { useGetSellerInformationQuery } from '@/redux/api/sellerInformationApi/sellerInformationApi';
-import React from 'react';
-import { Table } from 'react-bootstrap';
+import { useGetSellerInformationQuery } from "@/redux/api/sellerInformationApi/sellerInformationApi";
+import React from "react";
+import { Table } from "react-bootstrap";
 
-const SellerInformation = ({vendorId}) => {
-
-
-    const {data:sellerInformation, isLoading, isError, error}=useGetSellerInformationQuery(vendorId)
+const SellerInformation = ({ vendorId }) => {
+    const {
+        data: sellerInformation,
+        isLoading,
+        isError,
+        error,
+    } = useGetSellerInformationQuery(vendorId);
 
     // console.log(sellerInformation?.data?.VendorInfo)
 
-    const {Name, ShopName, Scores,  } = sellerInformation?.data.VendorInfo || {};
+    const { Name, ShopName, Scores } = sellerInformation?.data.VendorInfo || {};
     return (
         <div>
             <Table class="table table-bordered">
-                    
-                    <tbody>
-
+                <tbody>
                     <tr>
                         <th className="p-2 text-center">Name</th>
                         <th className="p-2 text-center">{Name}</th>
@@ -36,8 +37,8 @@ const SellerInformation = ({vendorId}) => {
                         <th className="p-2 text-center">Service Score</th>
                         <th className="p-2 text-center">{Scores?.ServiceScore}</th>
                     </tr>
-                    </tbody>
-                </Table>
+                </tbody>
+            </Table>
         </div>
     );
 };

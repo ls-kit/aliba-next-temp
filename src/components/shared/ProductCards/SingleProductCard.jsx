@@ -6,7 +6,7 @@ import Rating from "react-rating";
 
 const SingleProductCard = ({ data }) => {
     // console.log(data);
-    const { img, name, rating, sale_price, product_code, total_sold,stock } = data;
+    const { img, name, rating, sale_price, product_code, total_sold, stock } = data;
     return (
         <Link href={`/product/${product_code}`} className="col-12 col-md-3">
             <div className="collection-product-wrapper">
@@ -47,14 +47,9 @@ const SingleProductCard = ({ data }) => {
 
                         <div className="product-detail p-3">
                             <div>
-                                <div  className="d-flex flex-row align-items-center  justify-content-between">
-
-                                <h6 className="text-black font-bold">
-                                Sold:  {total_sold}
-                                </h6>
-                                <h6 className="text-black font-bold">
-                                stock:   {stock}
-                                </h6>
+                                <div className="d-flex flex-row align-items-center  justify-content-between">
+                                    <h6 className="text-black font-bold">Sold: {total_sold}</h6>
+                                    <h6 className="text-black font-bold">stock: {stock}</h6>
                                 </div>
                             </div>
                             <div className="rating">
@@ -66,7 +61,7 @@ const SingleProductCard = ({ data }) => {
                                 />
                             </div>
                             <div>
-                                <h6>{name.slice(0,35)}...</h6>
+                                <h6>{name.slice(0, 35)}...</h6>
                             </div>
 
                             <h4>৳{sale_price}</h4>

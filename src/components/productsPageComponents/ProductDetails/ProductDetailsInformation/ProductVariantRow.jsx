@@ -1,10 +1,10 @@
 import React, { useRef, useState } from "react";
 
-const ProductVariantRow = ({variant}) => {
-    console.log(variant)
-    const {Value} = variant?.size
-    const { Price, Quantity } = variant?.element
-    
+const ProductVariantRow = ({ variant }) => {
+    console.log(variant);
+    const { Value } = variant?.size;
+    const { Price, Quantity } = variant?.element;
+
     const [productQuantity, setProductQuantity] = useState(0);
     const quantityRef = useRef();
 
@@ -39,9 +39,7 @@ const ProductVariantRow = ({variant}) => {
                     </button>
                 </div>
                 <div>
-                    <p>
-                        {Quantity}
-                    </p>
+                    <p>{Quantity}</p>
                 </div>
             </td>
         </tr>

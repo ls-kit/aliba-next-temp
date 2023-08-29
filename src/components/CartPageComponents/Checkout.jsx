@@ -1,6 +1,7 @@
+"use client";
 import React from "react";
 
-const CheckoutRight = () => {
+const Checkout = () => {
     return (
         <div className="col-lg-4 col-12">
             <div className="checkout-details">
@@ -112,4 +113,4 @@ const CheckoutRight = () => {
     );
 };
 
-export default CheckoutRight;
+export default Checkout;

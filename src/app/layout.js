@@ -5,6 +5,8 @@ import Script from "next/script";
 import MainNavbar from "@/components/shared/Navbar/MainNavbar/MainNavbar";
 import Footer from "@/components/shared/Footer/Footer/Footer";
 import StoreProvider from "@/redux/StoreProvider";
+import ScrollTop from "@/helpers/scrollToTop/ScrollTop";
+// import ChatWidget from "@/helpers/ChatWidget/ChatWidget";
 
 export const metadata = {
     title: "Aliba Internation",
@@ -18,6 +20,8 @@ export default function RootLayout({ children }) {
                 <StoreProvider>
                     <MainNavbar />
                     {children}
+                    {/* <ChatWidget /> */}
+                    <ScrollTop />
                     <Footer />
                 </StoreProvider>
                 <Script

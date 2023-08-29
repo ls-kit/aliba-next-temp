@@ -1,24 +1,25 @@
-'use client'
-import React,{useEffect} from "react";
+"use client";
+import React, { useEffect } from "react";
 import Rating from "react-rating";
-import ProductVariant from './ProductVariant';
+import ProductVariant from "./ProductVariant";
 // import useProductConfig from "@/helpers/productsDetails/productHelpers";
 
-
-const ProductDetailsMiddle = ({ FeaturedValues, Title, Attributes, colorAttributes, productVariant, setColorProp}) => {
+const ProductDetailsMiddle = ({
+    FeaturedValues,
+    Title,
+    Attributes,
+    colorAttributes,
+    productVariant,
+    setColorProp,
+}) => {
     // const {productConfig} = useProductConfig()
     const rating = FeaturedValues?.find((featureValue) => featureValue.Name === "rating");
 
     // console.log(rating);
     // useEffect(() => {
-        
+
     //     productConfig(Attributes,ConfiguredItems)
     // },[])
-
-    
-
-
-
 
     return (
         <div className="col-lg-4 rtl-text">
@@ -35,8 +36,13 @@ const ProductDetailsMiddle = ({ FeaturedValues, Title, Attributes, colorAttribut
                     <h3 className="text-black font-bold">{Title}</h3>
                 </div>
             </div>
-            <hr className="my-3"/>
-            <ProductVariant Attributes ={Attributes} colorAttributes={colorAttributes}  setColorProp={setColorProp} productVariant={productVariant} />
+            <hr className="my-3" />
+            <ProductVariant
+                Attributes={Attributes}
+                colorAttributes={colorAttributes}
+                setColorProp={setColorProp}
+                productVariant={productVariant}
+            />
         </div>
     );
 };

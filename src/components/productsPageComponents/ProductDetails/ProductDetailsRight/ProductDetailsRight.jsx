@@ -1,55 +1,50 @@
 import React from "react";
 import { Table } from "react-bootstrap";
 
-const ProductDetailsRight = ({Id,VendorScore}) => {
+const ProductDetailsRight = ({ Id, VendorScore }) => {
     return (
         <div className="col-lg-4 rtl-text">
             <div>
-            <div className=" border">
-                <h5 className="text-danger text-center p-2">
-                    আপনার পণ্য নির্বাচন সঠিক না হলে আলিবা ইন্টারন্যাশনাল তা সংশোধন করার অধিকার রাখে।
-                </h5>
-            </div>
+                <div className=" border">
+                    <h5 className="text-danger text-center p-2">
+                        আপনার পণ্য নির্বাচন সঠিক না হলে আলিবা ইন্টারন্যাশনাল তা সংশোধন করার অধিকার
+                        রাখে।
+                    </h5>
+                </div>
                 <div className="w-100 flex flex-row align-items-center justify-content-between border">
-                        
-                    <div className="p-2 text-center" style={{ backgroundColor:"#FF4C3B", color:"white" }} >
+                    <div
+                        className="p-2 text-center"
+                        style={{ backgroundColor: "#FF4C3B", color: "white" }}
+                    >
                         By Air (15-20 Working Days)
                     </div>
-                    <div className="p-2 text-center">
-                        Eas. Delivery : 10/9/2023 To 15/9/2023
-                    </div>
+                    <div className="p-2 text-center">Eas. Delivery : 10/9/2023 To 15/9/2023</div>
                 </div>
                 <Table class="table table-bordered">
                     <tbody>
                         <tr>
                             <td className="p-2 text-center">Total Quantity:</td>
                             <td className="p-2 text-center">00</td>
-                            
                         </tr>
                         <tr>
                             <td className="p-2 text-center">Product Price:</td>
                             <td className="p-2 text-center">৳ 0.00</td>
-                            
                         </tr>
                         <tr>
                             <td className="p-2 text-center">Approx. Weight:</td>
                             <td className="p-2 text-center">0.000 kg ( আনুমানিক)</td>
-                            
                         </tr>
                         <tr>
                             <td className="p-2 text-center">Shipping cost (based on weight) :</td>
                             <td className="p-2 text-center">0.000 kg ( আনুমানিক)</td>
-                            
                         </tr>
                         <tr>
                             <td className="p-2 text-center">China Local Shipping charge:</td>
                             <td className="p-2 text-center">৳ 0.00</td>
-                            
                         </tr>
                         <tr>
                             <td className="p-2 text-center">Total Products Price:</td>
                             <td className="p-2 text-center">৳ 0.00</td>
-                            
                         </tr>
                     </tbody>
                     {/* <tbody>
@@ -64,10 +59,9 @@ const ProductDetailsRight = ({Id,VendorScore}) => {
                     </tbody> */}
                 </Table>
                 <div className="w-100 flex flex-row align-items-center justify-content-between border">
-                        
-                    
                     <div className="p-2 text-center text-danger">
-                    পন্য আসার পর চায়না থেকে বাংলাদেশ এর শিপিং চার্জ ও আপনার ঠিকানার ডেলিভারি চার্জ যুক্ত হবে। এখনে শুধুমাত্র পণ্যের মূল্য প্রকাশিত হচ্ছে।
+                        পন্য আসার পর চায়না থেকে বাংলাদেশ এর শিপিং চার্জ ও আপনার ঠিকানার ডেলিভারি
+                        চার্জ যুক্ত হবে। এখনে শুধুমাত্র পণ্যের মূল্য প্রকাশিত হচ্ছে।
                     </div>
                 </div>
 
@@ -76,14 +70,11 @@ const ProductDetailsRight = ({Id,VendorScore}) => {
                         <tr>
                             <td className="p-2 text-center">Product code</td>
                             <td className="p-2 text-center">{Id}</td>
-                            
                         </tr>
                         <tr>
                             <td className="p-2 text-center">Seller Score</td>
                             <td className="p-2 text-center">{VendorScore}</td>
-                            
                         </tr>
-                        
                     </tbody>
                     {/* <tbody>
                         <tr>

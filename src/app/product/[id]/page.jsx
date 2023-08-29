@@ -12,7 +12,7 @@ const SingleProduct = ({ params }) => {
     const { data, isLoading, isError, error } = useGetSingleProductQuery(`/${params.id}`);
 
     console.log(data);
-    
+
     return (
         <div>
             {/* <BreadCrumb /> */}

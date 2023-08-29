@@ -4,7 +4,14 @@ import React, { useEffect, useState } from "react";
 import Rating from "react-rating";
 import ProductDetailsMiddle from "../ProductDetailsInformation/ProductDetailsMiddle";
 import ProductDetailsRight from "../ProductDetailsRight/ProductDetailsRight";
-import { ConfiguratorAttributes, getProductAttributes,getColorAttributes, getSizeAttributes,getProductGroupedAttributes,getVariantData} from "@/helpers/productsDetails/productHelpers";
+import {
+    ConfiguratorAttributes,
+    getProductAttributes,
+    getColorAttributes,
+    getSizeAttributes,
+    getProductGroupedAttributes,
+    getVariantData,
+} from "@/helpers/productsDetails/productHelpers";
 
 const ProductDetails = ({ data }) => {
     // console.log(data);
@@ -18,17 +25,17 @@ const ProductDetails = ({ data }) => {
         IsSellAllowed,
         Attributes,
         ConfiguredItems,
-        VendorScore
+        VendorScore,
     } = data?.data?.item || {};
     const [previewImg, setPreviewImg] = useState();
     const [colorProp, setColorProp] = useState();
 
-    const Attr = getProductAttributes(data?.data?.item)
+    const Attr = getProductAttributes(data?.data?.item);
     const ConfigAttributes = ConfiguratorAttributes(data?.data?.item);
     const colorAttributes = getColorAttributes(ConfigAttributes);
     const sizeAttributes = getSizeAttributes(ConfigAttributes);
-    const singleAttribute = getProductGroupedAttributes(ConfigAttributes)
-    const productVariant = getVariantData(colorProp, data?.data?.item)
+    const singleAttribute = getProductGroupedAttributes(ConfigAttributes);
+    const productVariant = getVariantData(colorProp, data?.data?.item);
     // console.log(productVariant)
     // console.log(colorProp)
     // console.log(ConfigAttributes)
@@ -86,7 +93,6 @@ const ProductDetails = ({ data }) => {
                             colorAttributes={colorAttributes}
                             setColorProp={setColorProp}
                             productVariant={productVariant}
-
                         />
                         <ProductDetailsRight Id={Id} VendorScore={VendorScore} />
                     </div>
