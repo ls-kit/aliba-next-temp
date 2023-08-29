@@ -30,7 +30,7 @@ const MainNavbar = () => {
     };
     return (
         <header>
-            <div className="mobile-fix-option"></div>
+            {/* <div className="mobile-fix-option"></div> */}
             <TopNavbar />
             <div className="container position-relative ">
                 <div className="row">
