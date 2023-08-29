@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { useRanger } from "react-ranger";
 const PrizeRange = () => {
-    const [values, setValues] = useState([0, 10]);
+    const [values, setValues] = useState([0, 0]);
 
     // console.log(values);
     const { getTrackProps, handles } = useRanger({
@@ -19,8 +19,8 @@ const PrizeRange = () => {
                 {...getTrackProps({
                     style: {
                         height: "4px",
-                        background: "#FF0000",
-                        boxShadow: "inset 0 1px 2px #FF0000",
+                        background: "#F88E07",
+                        boxShadow: "inset 0 1px 2px #F88E07",
                         borderRadius: "2px",
                     },
                 })}
@@ -33,8 +33,8 @@ const PrizeRange = () => {
                                 width: "12px",
                                 height: "12px",
                                 borderRadius: "100%",
-                                background: "#FF0000",
-                                border: "solid 1px #FF0000",
+                                background: "#F88E07",
+                                border: "solid 1px #F88E07",
                             },
                         })}
                     />
