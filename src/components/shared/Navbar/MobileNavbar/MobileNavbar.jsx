@@ -1,3 +1,4 @@
+import { fb_page_id } from "@/helpers/settings";
 import Link from "next/link";
 import React from "react";
 import { Card } from "react-bootstrap";

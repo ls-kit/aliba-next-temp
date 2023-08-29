@@ -1,6 +1,7 @@
 'use client'
 
 import MessengerCustomerChat from 'react-messenger-customer-chat';
+import { fb_app_id, fb_page_id, theme_color } from '../settings';
 
 
 const ChatWidget = () => {
