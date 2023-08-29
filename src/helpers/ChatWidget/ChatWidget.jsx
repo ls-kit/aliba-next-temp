@@ -5,7 +5,7 @@ import MessengerCustomerChat from 'react-messenger-customer-chat';
 
 const ChatWidget = () => {
     return (
-        <MessengerCustomerChat pageId="111566521450770" appId="3552222274993854" themeColor="#ED8301" />
+        <MessengerCustomerChat pageId={fb_page_id} appId={fb_app_id} themeColor={theme_color} />
     );
 };
 

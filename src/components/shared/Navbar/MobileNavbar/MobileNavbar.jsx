@@ -32,6 +32,11 @@ const MobileNavbar = () => {
                             <i className="fa-solid fa-user text-black"></i>
                         </Link>
                     </li>
+                    <li className="onhover-div mobile-messenger">
+                        <a href={`https://m.me/${fb_page_id}`}>
+                        <i class="fa-brands fa-facebook-messenger text-black"></i>
+                        </a>
+                    </li>
                 </ul>
             
         </div>
