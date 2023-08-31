@@ -9,10 +9,17 @@ const ProductVariantRow = ({ variant }) => {
     const quantityRef = useRef();
 
     const increaseQuantity = () => {
-        setProductQuantity((quantity) => quantity + 1);
+        setProductQuantity((quantity) => Math.min(quantity + 1, Quantity));
     };
     const decreaseQuantity = () => {
-        setProductQuantity((quantity) => quantity - 1);
+        setProductQuantity((quantity) => Math.max(0, quantity - 1)); // Prevent negative values
+    };
+    
+    const handleQuantityChange = (event) => {
+        const newQuantity = parseInt(event.target.value);
+        if (!isNaN(newQuantity)) {
+            setProductQuantity(Math.min(Math.max(newQuantity, 0), Quantity));
+        }
     };
 
     return (
@@ -20,7 +27,6 @@ const ProductVariantRow = ({ variant }) => {
             <td className="p-2 text-center">{Value}</td>
             <td className="p-2 text-center">{Price?.MarginPrice}</td>
             <td className="p-2 text-center">
-                {/* <button className="btn btn-solid btn-sm">Add to cart</button> */}
                 <div className="d-flex mb-4 justify-content-center align-items-center">
                     <button className="btn btn-solid btn-sm btn-xs" onClick={decreaseQuantity}>
                         <i className="fas fa-minus"></i>
@@ -30,7 +36,8 @@ const ProductVariantRow = ({ variant }) => {
                         <input
                             type="number"
                             className="px-1 w-100 border-0 text-center"
-                            defaultValue={productQuantity}
+                            value={productQuantity}
+                            onChange={handleQuantityChange}
                         />
                     </form>
 

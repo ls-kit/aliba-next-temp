@@ -33,10 +33,13 @@ const singleProductSlice = createSlice({
         },
         decreaseQuantity: (state, action) => {
             
+        },
+        addColor: (state, action) => {
+            
         }
     }
 })
 
-export const { increaseQuantity, decreaseQuantity } = singleProductSlice.actions;
+export const { increaseQuantity, decreaseQuantity,addColor } = singleProductSlice.actions;
 
 export default singleProductSlice.reducer;
