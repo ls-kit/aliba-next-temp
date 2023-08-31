@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useGetGeneralsQuery } from "@/redux/api/generalApi/generalApi";
 import Image from "next/image";
 import { base } from "@/redux/api/apiEndpoints";
-import { theme_color } from "@/helpers/settings";
+import { primary_color } from "@/helpers/settings";
 import SearchBox from "@/components/productsPageComponents/ProductFilter/SearchBox";
 
 const MainNavbar = () => {
@@ -31,7 +31,7 @@ const MainNavbar = () => {
         document.getElementById("main-menu").classList.remove("open-side");
     };
     return (
-        <header style={{ backgroundColor:theme_color }}>
+        <header style={{ backgroundColor:primary_color }}>
             <div className="mobile-fix-option"></div>
             <TopNavbar />
             <div className="container position-relative "  >

@@ -1597,7 +1597,7 @@
      ==========================*/
     if ($(window).width() < 1199) {
         $(
-            ".header-2 .navbar .sidebar-bar, .header-2 .navbar .sidebar-back, .header-2 .mobile-search img"
+            ".header-2 .navbar .sidebar-bar, .header-2 .navbar .sidebar-back, .header-2 .mobile-wishlist img"
         ).on("click", function () {
             if ($("#mySidenav").hasClass("open-side")) {
                 $(".header-2 #main-nav .toggle-nav").css("z-index", "99");
@@ -1611,7 +1611,7 @@
         $(".header-2 #search-overlay .closebtn").on("click", function () {
             $(".header-2 #main-nav .toggle-nav").css("z-index", "99");
         });
-        $(".layout3-menu .mobile-search .ti-search, .header-2 .mobile-search .ti-search").on(
+        $(".layout3-menu .mobile-wishlist .ti-search, .header-2 .mobile-wishlist .ti-search").on(
             "click",
             function () {
                 $(".layout3-menu #main-nav .toggle-nav, .header-2 #main-nav .toggle-nav").css(

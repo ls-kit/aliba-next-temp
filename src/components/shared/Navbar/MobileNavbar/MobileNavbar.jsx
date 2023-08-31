@@ -1,4 +1,4 @@
-import { fb_page_id } from "@/helpers/settings";
+import { fb_page_id, secondary_color } from "@/helpers/settings";
 import Link from "next/link";
 import React from "react";
 import { Card } from "react-bootstrap";
@@ -9,7 +9,7 @@ const MobileNavbar = () => {
             
                 
                 <ul className="d-flex flex-row justify-content-around align-items-center" >
-                    <li className="onhover-div mobile-search">
+                    <li className="onhover-div mobile-wishlist">
                         <Link href={"/products"}>
                             <i
                                 className="fa-solid fa-magnifying-glass text-black"
@@ -21,7 +21,7 @@ const MobileNavbar = () => {
                         <Link href={"/cart"}>
                             <i className="fa-solid fa-cart-flatbed text-black"></i>
                         </Link>
-                        <span className="cart_qty_cls">2</span>
+                        <span className="cart_qty_cls" style={{backgroundColor:secondary_color}}>2</span>
                     </li>
                     <li className="onhover-div mobile-home">
                         <Link href={"/"}>

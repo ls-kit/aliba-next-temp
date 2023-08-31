@@ -104,7 +104,7 @@ const LoaderSekeleton = () => {
                                     <div>
                                         <div className="icon-nav d-none d-sm-block">
                                             <ul>
-                                                <li className="onhover-div mobile-search">
+                                                <li className="onhover-div mobile-wishlist">
                                                     <div>
                                                         <img
                                                             src="../assets/images/icon/search.png"
