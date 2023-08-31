@@ -31,7 +31,7 @@ const MainNavbar = () => {
         document.getElementById("main-menu").classList.remove("open-side");
     };
     return (
-        <header style={{ backgroundColor:primary_color }}>
+        <header style={{ backgroundColor:primary_color }} className="mb-1" >
             <div className="mobile-fix-option"></div>
             <TopNavbar />
             <div className="container position-relative "  >
@@ -198,7 +198,7 @@ const MainNavbar = () => {
                                         </nav>
                                     </div>
                                 </div>
-
+                                <Link href={'/'}>
                                 <Image
                                     width={75}
                                     height={75}
@@ -212,6 +212,7 @@ const MainNavbar = () => {
                                     alt="logo"
                                     className="logo"
                                 />
+                                </Link>
                             </div>
                             <div className='w-50 d-none d-md-block'>
                             <SearchBox/>

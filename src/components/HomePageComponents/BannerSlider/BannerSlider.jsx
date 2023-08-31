@@ -42,7 +42,7 @@ const BannerSlider = () => {
 
     if (bannersData) {
         return (
-            <section className="container py-0 mt-1">
+            <section className="container py-0 my-0">
                 <div>
                     <Swiper
                         spaceBetween={5}
