@@ -1,7 +1,21 @@
+import { formatDate } from "@/helpers/productsDetails/productHelpers";
 import React from "react";
 import { Table } from "react-bootstrap";
 
 const ProductDetailsRight = ({ Id, VendorScore }) => {
+
+    const today = new Date();
+    const deliveryStartDate = new Date(today);
+    deliveryStartDate.setDate(today.getDate() + 15); // Add 15 days to today's date for the minimum delivery date
+    const deliveryEndDate = new Date(today);
+    deliveryEndDate.setDate(today.getDate() + 20); // Add 20 days to today's date for the maximum delivery date
+
+    const formattedStartDate = formatDate(deliveryStartDate);
+    const formattedEndDate = formatDate(deliveryEndDate);
+
+    
+
+
     return (
         <div className="col-lg-4 rtl-text">
             <div>
@@ -18,7 +32,7 @@ const ProductDetailsRight = ({ Id, VendorScore }) => {
                     >
                         By Air (15-20 Working Days)
                     </div>
-                    <div className="p-2 text-center">Eas. Delivery : 10/9/2023 To 15/9/2023</div>
+                    <div className="p-2 text-center">Eas. Delivery : {formattedStartDate} To {formattedEndDate}</div>
                 </div>
                 <Table class="table table-bordered">
                     <tbody>

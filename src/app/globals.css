@@ -6452,6 +6452,7 @@ footer.pet-layout-footer .social-white {
         -webkit-transform: none;
         transform: none;
     }
+    
 }
 .cart-error-toast .toast .error-icon {
     margin-right: calc(14px + (32 - 14) * ((100vw - 320px) / (1920 - 320)));
@@ -34114,4 +34115,12 @@ body.rtl .account-setting {
 .form-input:focus {
     box-shadow: none;
     border: 1px solid var(--theme-color);
+}
+
+@media (max-width: 767px) {
+    .logo{
+        position: absolute ;
+        left: 40% !important;
+
+    }
 }

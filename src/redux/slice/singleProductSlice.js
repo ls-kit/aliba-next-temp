@@ -4,7 +4,9 @@ const { createSlice } = require("@reduxjs/toolkit")
 
 const initialState = {
     item: {
-        
+        id:'',
+        name:'',
+        img:''
     },
     totalQuantity: 0,
     totalPrice: 0,
@@ -12,7 +14,8 @@ const initialState = {
     shippingCost: 0,
     chinaLocalShippingCost: 0,
     shippingCostPerKG: 0,
-    deliveryDate: '',
+    deliveryDateStart: '',
+    deliveryDateEnd: '',
     variant: [
         {
             colorName: '',

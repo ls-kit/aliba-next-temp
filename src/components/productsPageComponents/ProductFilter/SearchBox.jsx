@@ -2,7 +2,7 @@ import React from "react";
 
 const SearchBox = () => {
     return (
-        <div className="container mx-auto">
+        <div>
             <div className="row height d-flex justify-content-center align-items-center">
                 <div className="col-md-12">
                     <div className="form">

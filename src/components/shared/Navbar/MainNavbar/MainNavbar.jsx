@@ -5,6 +5,8 @@ import Link from "next/link";
 import { useGetGeneralsQuery } from "@/redux/api/generalApi/generalApi";
 import Image from "next/image";
 import { base } from "@/redux/api/apiEndpoints";
+import { theme_color } from "@/helpers/settings";
+import SearchBox from "@/components/productsPageComponents/ProductFilter/SearchBox";
 
 const MainNavbar = () => {
     const { data: generalsData, isLoading, isError, error } = useGetGeneralsQuery();
@@ -29,10 +31,10 @@ const MainNavbar = () => {
         document.getElementById("main-menu").classList.remove("open-side");
     };
     return (
-        <header>
+        <header style={{ backgroundColor:theme_color }}>
             <div className="mobile-fix-option"></div>
             <TopNavbar />
-            <div className="container position-relative ">
+            <div className="container position-relative "  >
                 <div className="row">
                     <div className="col-sm-12">
                         <div className="main-menu">
@@ -63,130 +65,7 @@ const MainNavbar = () => {
                                                 </div>
                                             </div>
                                             <ul id="sub-menu" className="sm pixelstrap sm-vertical">
-                                                <li>
-                                                    {" "}
-                                                    <a href="#">clothing</a>
-                                                    <ul className="mega-menu clothing-menu">
-                                                        <li>
-                                                            <div className="row m-0">
-                                                                <div className="col-xl-4">
-                                                                    <div className="link-section">
-                                                                        <h5>womens fashion</h5>
-                                                                        <ul>
-                                                                            <li>
-                                                                                <a href="#">
-                                                                                    dresses
-                                                                                </a>
-                                                                            </li>
-                                                                            <li>
-                                                                                <a href="#">
-                                                                                    skirts
-                                                                                </a>
-                                                                            </li>
-                                                                            <li>
-                                                                                <a href="#">
-                                                                                    westarn wear
-                                                                                </a>
-                                                                            </li>
-                                                                            <li>
-                                                                                <a href="#">
-                                                                                    ethic wear
-                                                                                </a>
-                                                                            </li>
-                                                                            <li>
-                                                                                <a href="#">
-                                                                                    sport wear
-                                                                                </a>
-                                                                            </li>
-                                                                        </ul>
-                                                                        <h5>mens fashion</h5>
-                                                                        <ul>
-                                                                            <li>
-                                                                                <a href="#">
-                                                                                    sports wear
-                                                                                </a>
-                                                                            </li>
-                                                                            <li>
-                                                                                <a href="#">
-                                                                                    western wear
-                                                                                </a>
-                                                                            </li>
-                                                                            <li>
-                                                                                <a href="#">
-                                                                                    ethic wear
-                                                                                </a>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </div>
-                                                                <div className="col-xl-4">
-                                                                    <div className="link-section">
-                                                                        <h5>accessories</h5>
-                                                                        <ul>
-                                                                            <li>
-                                                                                <a href="#">
-                                                                                    fashion
-                                                                                    jewellery
-                                                                                </a>
-                                                                            </li>
-                                                                            <li>
-                                                                                <a href="#">
-                                                                                    caps and hats
-                                                                                </a>
-                                                                            </li>
-                                                                            <li>
-                                                                                <a href="#">
-                                                                                    precious
-                                                                                    jewellery
-                                                                                </a>
-                                                                            </li>
-                                                                            <li>
-                                                                                <a href="#">
-                                                                                    necklaces
-                                                                                </a>
-                                                                            </li>
-                                                                            <li>
-                                                                                <a href="#">
-                                                                                    earrings
-                                                                                </a>
-                                                                            </li>
-                                                                            <li>
-                                                                                <a href="#">
-                                                                                    wrist wear
-                                                                                </a>
-                                                                            </li>
-                                                                            <li>
-                                                                                <a href="#">ties</a>
-                                                                            </li>
-                                                                            <li>
-                                                                                <a href="#">
-                                                                                    cufflinks
-                                                                                </a>
-                                                                            </li>
-                                                                            <li>
-                                                                                <a href="#">
-                                                                                    pockets squares
-                                                                                </a>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </div>
-                                                                <div className="col-xl-4">
-                                                                    <a
-                                                                        href="#"
-                                                                        className="mega-menu-banner"
-                                                                    >
-                                                                        <img
-                                                                            src="../assets/images/mega-menu/fashion.jpg"
-                                                                            alt=""
-                                                                            className="img-fluid blur-up lazyload"
-                                                                        />
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </li>
+                                                
                                                 <li>
                                                     {" "}
                                                     <a href="#">bags</a>
@@ -304,126 +183,11 @@ const MainNavbar = () => {
                                                 <li>
                                                     <a href="#">watches</a>
                                                 </li>
-                                                <li>
-                                                    {" "}
-                                                    <a href="#">Accessories</a>
-                                                    <ul>
-                                                        <li>
-                                                            <a href="#">fashion jewellery</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#">caps and hats</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#">precious jewellery</a>
-                                                        </li>
-                                                        <li>
-                                                            {" "}
-                                                            <a href="#">more..</a>
-                                                            <ul>
-                                                                <li>
-                                                                    <a href="#">necklaces</a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#">earrings</a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#">wrist wear</a>
-                                                                </li>
-                                                                <li>
-                                                                    {" "}
-                                                                    <a href="#">accessories</a>
-                                                                    <ul>
-                                                                        <li>
-                                                                            <a href="#">ties</a>
-                                                                        </li>
-                                                                        <li>
-                                                                            <a href="#">
-                                                                                cufflinks
-                                                                            </a>
-                                                                        </li>
-                                                                        <li>
-                                                                            <a href="#">
-                                                                                pockets squares
-                                                                            </a>
-                                                                        </li>
-                                                                        <li>
-                                                                            <a href="#">helmets</a>
-                                                                        </li>
-                                                                        <li>
-                                                                            <a href="#">scarves</a>
-                                                                        </li>
-                                                                        <li>
-                                                                            {" "}
-                                                                            <a href="#">more...</a>
-                                                                            <ul>
-                                                                                <li>
-                                                                                    <a href="#">
-                                                                                        accessory
-                                                                                        gift sets
-                                                                                    </a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a href="#">
-                                                                                        travel
-                                                                                        accessories
-                                                                                    </a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a href="#">
-                                                                                        phone cases
-                                                                                    </a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </li>
-                                                                    </ul>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#">belts & more</a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#">wearable</a>
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                </li>
+                                                
                                                 <li>
                                                     <a href="#">house of design</a>
                                                 </li>
-                                                <li>
-                                                    {" "}
-                                                    <a href="#">beauty & personal care</a>
-                                                    <ul>
-                                                        <li>
-                                                            <a href="#">makeup</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#">skincare</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#">premium beaty</a>
-                                                        </li>
-                                                        <li>
-                                                            {" "}
-                                                            <a href="#">more</a>
-                                                            <ul>
-                                                                <li>
-                                                                    <a href="#">fragrances</a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#">luxury beauty</a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#">hair care</a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#">tools & brushes</a>
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                </li>
+                                                
                                                 <li>
                                                     <a href="#">home & decor</a>
                                                 </li>
@@ -446,54 +210,20 @@ const MainNavbar = () => {
                                             parsedGeneralData?.frontend_logo_menu
                                     }
                                     alt="logo"
+                                    className="logo"
                                 />
                             </div>
+                            <div className='w-50 d-none d-md-block'>
+                            <SearchBox/>
+                            </div>
                             <div className="menu-right pull-right">
-                                <div>
-                                    <nav id="main-nav">
-                                        <div className="toggle-nav" onClick={openRightSide}>
-                                            <i className="fa fa-bars sidebar-bar"></i>
-                                        </div>
-                                        <ul
-                                            id="main-menu"
-                                            className="sm pixelstrap sm-horizontal rightsidenav"
-                                        >
-                                            <li>
-                                                <div
-                                                    onClick={closeRightSide}
-                                                    className="mobile-back text-end"
-                                                >
-                                                    Back
-                                                    <i
-                                                        className="fa fa-angle-right ps-2"
-                                                        aria-hidden="true"
-                                                    ></i>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <Link href="/">Home</Link>
-                                            </li>
-                                            <li className="mega" id="hover-cls">
-                                                <Link href="/products">Products</Link>
-                                            </li>
-                                            <li>
-                                                <a href="#">shop</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">feature</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">pages</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">blog</a>
-                                            </li>
-                                        </ul>
-                                    </nav>
-                                </div>
+                                
                                 <MobileNavbar />
                             </div>
                         </div>
+                    </div>
+                    <div className="col-sm-12 d-block d-md-none mb-3 w-100" >
+                        <SearchBox />
                     </div>
                 </div>
             </div>
