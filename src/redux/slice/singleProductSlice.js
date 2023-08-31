@@ -3,11 +3,9 @@ const { createSlice } = require("@reduxjs/toolkit")
 
 
 const initialState = {
-    item: {
-        id:'',
-        name:'',
-        img:''
-    },
+
+    id:'',
+    name:'',
     totalQuantity: 0,
     totalPrice: 0,
     totalWeight: 0,
@@ -17,15 +15,12 @@ const initialState = {
     deliveryDateStart: '',
     deliveryDateEnd: '',
     variant: [
-        {
-            colorName: '',
-            price: 0,
-            size: 0,
-            quantity: 0,
-        }
+        
     ]
 
 }
+
+console.log(initialState)
 
 const singleProductSlice = createSlice({
     name: "singleProduct",
@@ -38,11 +33,29 @@ const singleProductSlice = createSlice({
             
         },
         addColor: (state, action) => {
-            
+            state?.variant?.map(colorVariant=>{
+                if(colorVariant.colorName !== action.payload.color){
+                    state?.variant?.push({
+                        colorName: action.payload.color,
+                        sizeVariant:[
+                            {
+                                size:"",
+                                quantity: 0,
+                                price:0,
+                                totalPrice: 0,
+                            }
+                        ]
+                    })
+                }
+            })
+        },
+        addProduct: (state, action) => {
+            state.id = action.payload.Id
+            state.name = action.payload.Title
         }
     }
 })
 
-export const { increaseQuantity, decreaseQuantity,addColor } = singleProductSlice.actions;
+export const { increaseQuantity, decreaseQuantity,addColor,addProduct } = singleProductSlice.actions;
 
 export default singleProductSlice.reducer;

@@ -12,6 +12,8 @@ import {
     getProductGroupedAttributes,
     getVariantData,
 } from "@/helpers/productsDetails/productHelpers";
+import { useDispatch } from "react-redux";
+import { addProduct } from "@/redux/slice/singleProductSlice";
 
 const ProductDetails = ({ data }) => {
     // console.log(data);
@@ -28,9 +30,16 @@ const ProductDetails = ({ data }) => {
         VendorScore,
     } = data?.data?.item || {};
     const [previewImg, setPreviewImg] = useState();
+    const [defaultImageUrl, setDefaultImageUrl] = useState();
     const [colorProp, setColorProp] = useState();
 
-    const Attr = getProductAttributes(data?.data?.item);
+    const dispatch = useDispatch();
+
+    dispatch(addProduct({Id, Title }))
+
+
+
+
     const ConfigAttributes = ConfiguratorAttributes(data?.data?.item);
     const colorAttributes = getColorAttributes(ConfigAttributes);
     const sizeAttributes = getSizeAttributes(ConfigAttributes);
@@ -47,6 +56,7 @@ const ProductDetails = ({ data }) => {
             const defaultImg = Pictures.find((picture) => picture.IsMain === true);
             if (defaultImg) {
                 setPreviewImg(defaultImg.Url);
+                setDefaultImageUrl(defaultImg.Url)
             }
         }
     }, [Pictures]);

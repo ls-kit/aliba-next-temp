@@ -4,6 +4,8 @@ import Image from "next/image";
 import React, { useState, useEffect, useRef } from "react";
 import { Table } from "react-bootstrap";
 import ProductVariantRow from "./ProductVariantRow";
+import { useDispatch } from "react-redux";
+import { addColor } from "@/redux/slice/singleProductSlice";
 // import useProductConfig from "@/helpers/productsDetails/productHelpers";
 
 const ProductVariant = ({ colorAttributes, setColorProp, productVariant }) => {
@@ -14,12 +16,16 @@ const ProductVariant = ({ colorAttributes, setColorProp, productVariant }) => {
     const { data: productTypes, isLoading, isError, error } = useGetProductTypeQuery();
     // const {colorTypes} = useProductConfig()
 
+
+    const dispatch = useDispatch()
+
     const { productCategoryShippingRates } = productTypes?.data || {};
 
     const colorImageHandler = (value, Vid, Pid) => {
         setSelectColor(value);
         // colorTypes([{Vid,Pid}])
         setColorProp({ Pid, Vid });
+        dispatch(addColor({color:value}))
     };
 
     // console.log(productCategoryShippingRates);
