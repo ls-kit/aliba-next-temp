@@ -12,7 +12,7 @@ const MobileNavbar = () => {
                     <li className="onhover-div mobile-wishlist">
                         <Link href={"/products"}>
                             <i
-                                className="fa-solid fa-magnifying-glass text-black"
+                                className="fa-solid fa-heart text-black"
                                 // onclick="openSearch()"
                             ></i>
                         </Link>

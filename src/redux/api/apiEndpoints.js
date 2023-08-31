@@ -8,6 +8,7 @@ const endPoints = {
     shippingInformation: "/single-page/shipping-and-delivery",
     productDescription: "/product-description",
     sellerInformation: "/product-seller-information",
+    productSearch: "/get-search-result",
 };
 
-export const { base,banners, general, topProducts, singleProduct,productType, shippingInformation,productDescription,sellerInformation } = endPoints;
+export const { base,banners, general, topProducts, singleProduct,productType, shippingInformation,productDescription,sellerInformation,productSearch } = endPoints;

@@ -34082,11 +34082,12 @@ body.rtl .account-setting {
     position: relative;
 }
 
-.form .fa-search {
+.form .fa-camera {
     position: absolute;
-    top: 20px;
-    left: 20px;
-    color: #9ca3af;
+    top: 13px;
+    left: 13px;
+    font-size: x-large;
+    color: var(--theme-color);
 }
 
 .form span {
