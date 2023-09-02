@@ -1,11 +1,14 @@
 import { formatDate } from "@/helpers/productsDetails/productHelpers";
+import { addDeliveryDate } from "@/redux/slice/singleProductSlice";
 import React from "react";
 import { Table } from "react-bootstrap";
+import { useDispatch } from "react-redux";
 
 const ProductDetailsRight = ({ Id, VendorScore }) => {
 
+    const dispatch = useDispatch()
     const today = new Date();
-    const deliveryStartDate = new Date(today);
+    const deliveryStartDate =  new Date(today);
     deliveryStartDate.setDate(today.getDate() + 15); // Add 15 days to today's date for the minimum delivery date
     const deliveryEndDate = new Date(today);
     deliveryEndDate.setDate(today.getDate() + 20); // Add 20 days to today's date for the maximum delivery date
@@ -13,6 +16,10 @@ const ProductDetailsRight = ({ Id, VendorScore }) => {
     const formattedStartDate = formatDate(deliveryStartDate);
     const formattedEndDate = formatDate(deliveryEndDate);
 
+
+    dispatch(addDeliveryDate({
+        deliveryDateStart: formattedStartDate, deliveryDateEnd: formattedEndDate
+    }))
     
 
 
