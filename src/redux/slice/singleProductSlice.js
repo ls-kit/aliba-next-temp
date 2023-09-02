@@ -3,12 +3,12 @@ const { createSlice } = require("@reduxjs/toolkit");
 const initialState = {
     id: "",
     name: "",
+    chinaLocalShippingCost: 0,
+    shippingCostPerKG: 0,
     totalQuantity: 0,
     totalPrice: 0,
     totalWeight: 0,
-    totalShippingCost: 0,
-    chinaLocalShippingCost: 0,
-    shippingCostPerKG: 0,
+    // totalShippingCost: 0,
     deliveryDateStart: "",
     deliveryDateEnd: "",
     selectedColor:"",
@@ -16,10 +16,16 @@ const initialState = {
         {
             colorName: "",
             sizeVariant: [
-                
+                {
+                    size: '',
+                    quantity: 0,
+                    price: 0,
+                    totalQuantity: 0,
+                }
             ],
         },
     ],
+
 };
 
 console.log(initialState);
@@ -29,38 +35,120 @@ const singleProductSlice = createSlice({
     initialState,
     reducers: {
         increaseQuantity: (state, action) => {
-            const {size, productQuantity, price }=action.payload
-            // state.totalQuantity= 0,
-            // state.totalPrice= 0,
-            // state.totalWeight= 0,
-            // state.totalShippingCost= 0
-            const selectedColorProp = state.variant.map(colorVariant => {
-                if (colorVariant.colorName === state.selectedColor) {
-                    const sizeExists = colorVariant.sizeVariant.find(
-                        (item) => item.size === size
-                    );
-                    console.log(sizeExists)
-                    if (!sizeExists) {
-                        colorVariant.sizeVariant.push({
-                            
-                            size: size,
-                            quantity: productQuantity + 1,
-                            price: price,
-                            totalQuantity: productQuantity * price,
-                            
-                        })
-                    }
-                    if (sizeExists) {
-                        sizeExists.quantity = productQuantity + 1;
-                        sizeExists.price = price;
-                        sizeExists.totalQuantity = productQuantity * price;
-                    }
-               }
-            })
-            console.log()
-           
+            const { size, productQuantity, price } = action.payload;
+
+            // Find the selected color variant
+            const selectedColorProp = state.variant.find(
+                (colorVariant) => colorVariant.colorName === state.selectedColor
+            );
+
+            if (selectedColorProp) {
+                const sizeExists = selectedColorProp.sizeVariant.find(
+                    (item) => item.size === size
+                );
+
+                if (!sizeExists) {
+                    selectedColorProp.sizeVariant.push({
+                        size: size,
+                        quantity: productQuantity + 1,
+                        price: price,
+                        totalQuantity: (productQuantity + 1) * price,
+                    });
+                } else {
+                    sizeExists.quantity = productQuantity + 1;
+                    sizeExists.price = price;
+                    sizeExists.totalQuantity = (productQuantity + 1) * price;
+                }
+            }
+
+            // Recalculate totals for all products in variant array
+            state.totalQuantity = state.variant.reduce(
+                (total, colorVariant) =>
+                    total +
+                    colorVariant.sizeVariant.reduce(
+                        (colorTotal, sizeVariant) =>
+                            colorTotal + sizeVariant.quantity,
+                        0
+                    ),
+                0
+            );
+            state.totalPrice = state.variant.reduce(
+                (total, colorVariant) =>
+                    total +
+                    colorVariant.sizeVariant.reduce(
+                        (colorTotal, sizeVariant) =>
+                            colorTotal + sizeVariant.totalQuantity,
+                        0
+                    ),
+                0
+            );
+            state.totalWeight = state.variant.reduce(
+                (total, colorVariant) =>
+                    total +
+                    colorVariant.sizeVariant.reduce(
+                        (colorTotal, sizeVariant) =>
+                            colorTotal + sizeVariant.quantity * 1,
+                        0
+                    ),
+                0
+            );
+            // state.totalShippingCost =
+            //     state.totalWeight * state.shippingCostPerKG;
         },
-        decreaseQuantity: (state, action) => {},
+        decreaseQuantity: (state, action) => {
+            const { size, productQuantity, price } = action.payload;
+        
+            // Find the selected color variant
+            const selectedColorProp = state.variant.find(
+                (colorVariant) => colorVariant.colorName === state.selectedColor
+            );
+        
+            if (selectedColorProp) {
+                const sizeExists = selectedColorProp.sizeVariant.find(
+                    (item) => item.size === size
+                );
+        
+                if (sizeExists && sizeExists.quantity > 0) {
+                    sizeExists.quantity = Math.max(sizeExists.quantity - 1, 0);
+                    sizeExists.price = price;
+                    sizeExists.totalQuantity = sizeExists.quantity * price;
+                }
+            }
+        
+            // Recalculate totals for all products in variant array
+            state.totalQuantity = state.variant.reduce(
+                (total, colorVariant) =>
+                    total +
+                    colorVariant.sizeVariant.reduce(
+                        (colorTotal, sizeVariant) =>
+                            colorTotal + sizeVariant.quantity,
+                        0
+                    ),
+                0
+            );
+            state.totalPrice = state.variant.reduce(
+                (total, colorVariant) =>
+                    total +
+                    colorVariant.sizeVariant.reduce(
+                        (colorTotal, sizeVariant) =>
+                            colorTotal + sizeVariant.totalQuantity,
+                        0
+                    ),
+                0
+            );
+            state.totalWeight = state.variant.reduce(
+                (total, colorVariant) =>
+                    total +
+                    colorVariant.sizeVariant.reduce(
+                        (colorTotal, sizeVariant) =>
+                            colorTotal + sizeVariant.quantity * 1,
+                        0
+                    ),
+                0
+            );
+            // state.totalShippingCost =
+            //     state.totalWeight * state.shippingCostPerKG;
+        },
         addColor: (state, action) => {
             state.selectedColor = action.payload.color
             console.log(state.selectedColor)
@@ -89,6 +177,7 @@ const singleProductSlice = createSlice({
             state.name = action.payload.Title;
         },
         addShippingCostPerKG: (state, action) => {
+            console.log(action.payload.shippingCostPerKG)
             state.shippingCostPerKG = action.payload.shippingCostPerKG;
         },
         addDeliveryDate: (state, action) => {

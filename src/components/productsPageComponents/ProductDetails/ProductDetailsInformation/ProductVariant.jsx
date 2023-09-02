@@ -32,7 +32,7 @@ const ProductVariant = ({ colorAttributes, setColorProp, productVariant }) => {
 
     const rateValueHandler = () => {
         setShippingRate(rateRef.current.value);
-        dispatch(addShippingCostPerKG({shippingCostPerKG:Number(shippingRate) }))
+        dispatch(addShippingCostPerKG({shippingCostPerKG:Number(rateRef.current.value) }))
     };
 
     return (

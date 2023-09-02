@@ -2,11 +2,14 @@ import { formatDate } from "@/helpers/productsDetails/productHelpers";
 import { addDeliveryDate } from "@/redux/slice/singleProductSlice";
 import React from "react";
 import { Table } from "react-bootstrap";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const ProductDetailsRight = ({ Id, VendorScore }) => {
 
     const dispatch = useDispatch()
+    const {totalQuantity, totalPrice, totalWeight, shippingCostPerKG} = useSelector(state=> state.singleProductSlice)
+
+    console.log(totalQuantity, totalPrice, totalWeight, shippingCostPerKG)
     const today = new Date();
     const deliveryStartDate =  new Date(today);
     deliveryStartDate.setDate(today.getDate() + 15); // Add 15 days to today's date for the minimum delivery date
@@ -45,19 +48,19 @@ const ProductDetailsRight = ({ Id, VendorScore }) => {
                     <tbody>
                         <tr>
                             <td className="p-2 text-center">Total Quantity:</td>
-                            <td className="p-2 text-center">00</td>
+                            <td className="p-2 text-center">{totalQuantity}</td>
                         </tr>
-                        <tr>
-                            <td className="p-2 text-center">Product Price:</td>
-                            <td className="p-2 text-center">৳ 0.00</td>
-                        </tr>
+                        {/* <tr>
+                            <td className="p-2 text-center">Total Price:</td>
+                            <td className="p-2 text-center">৳ {totalPrice}</td>
+                        </tr> */}
                         <tr>
                             <td className="p-2 text-center">Approx. Weight:</td>
-                            <td className="p-2 text-center">0.000 kg ( আনুমানিক)</td>
+                            <td className="p-2 text-center">{totalWeight} kg ( আনুমানিক)</td>
                         </tr>
                         <tr>
                             <td className="p-2 text-center">Shipping cost (based on weight) :</td>
-                            <td className="p-2 text-center">0.000 kg ( আনুমানিক)</td>
+                            <td className="p-2 text-center">{shippingCostPerKG * totalWeight} kg ( আনুমানিক)</td>
                         </tr>
                         <tr>
                             <td className="p-2 text-center">China Local Shipping charge:</td>
@@ -65,7 +68,7 @@ const ProductDetailsRight = ({ Id, VendorScore }) => {
                         </tr>
                         <tr>
                             <td className="p-2 text-center">Total Products Price:</td>
-                            <td className="p-2 text-center">৳ 0.00</td>
+                            <td className="p-2 text-center">৳ {Math.ceil(totalPrice)}</td>
                         </tr>
                     </tbody>
                     {/* <tbody>

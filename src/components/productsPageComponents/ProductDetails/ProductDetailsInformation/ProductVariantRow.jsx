@@ -1,4 +1,4 @@
-import { increaseQuantity } from "@/redux/slice/singleProductSlice";
+import { decreaseQuantity, increaseQuantity } from "@/redux/slice/singleProductSlice";
 import React, { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 
@@ -14,11 +14,12 @@ const ProductVariantRow = ({ variant }) => {
 
     const increaseQuantityHandler = () => {
         setProductQuantity((quantity) => Math.min(quantity + 1, Quantity));
-        console.log(productQuantity)
+        // console.log(productQuantity)
         dispatch(increaseQuantity({size:Value, productQuantity:productQuantity, price:Price.MarginPrice,}))        
     };
     const decreaseQuantityHandler = () => {
-        setProductQuantity((quantity) => Math.max(0, quantity - 1)); // Prevent negative values
+        setProductQuantity((quantity) => Math.max(0, quantity - 1)); 
+        dispatch(decreaseQuantity({size:Value, productQuantity:productQuantity, price:Price.MarginPrice,}))
     };
     
     const handleQuantityChange = (event) => {
