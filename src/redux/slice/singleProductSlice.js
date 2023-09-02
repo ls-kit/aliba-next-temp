@@ -34,6 +34,9 @@ const singleProductSlice = createSlice({
 
             if (colorExists) {
                 console.log("Object exists in the array");
+                
+            } else {
+                console.log("Object does not exist in the array");
                 state.variant.push({
                     colorName: action.payload.color,
                     sizeVariant: [
@@ -45,8 +48,6 @@ const singleProductSlice = createSlice({
                         },
                     ],
                 });
-            } else {
-                console.log("Object does not exist in the array");
             }
         },
         addProduct: (state, action) => {
