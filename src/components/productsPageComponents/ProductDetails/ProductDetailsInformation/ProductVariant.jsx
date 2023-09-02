@@ -5,7 +5,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Table } from "react-bootstrap";
 import ProductVariantRow from "./ProductVariantRow";
 import { useDispatch } from "react-redux";
-import { addColor,increaseQuantity } from "@/redux/slice/singleProductSlice";
+import { addColor,addShippingCostPerKG,increaseQuantity } from "@/redux/slice/singleProductSlice";
 // import useProductConfig from "@/helpers/productsDetails/productHelpers";
 
 const ProductVariant = ({ colorAttributes, setColorProp, productVariant }) => {
@@ -32,6 +32,7 @@ const ProductVariant = ({ colorAttributes, setColorProp, productVariant }) => {
 
     const rateValueHandler = () => {
         setShippingRate(rateRef.current.value);
+        dispatch(addShippingCostPerKG({shippingCostPerKG:Number(shippingRate) }))
     };
 
     return (

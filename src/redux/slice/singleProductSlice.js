@@ -54,10 +54,14 @@ const singleProductSlice = createSlice({
             state.id = action.payload.Id;
             state.name = action.payload.Title;
         },
+        addShippingCostPerKG: (state, action) => {
+            console.log(action.payload.shippingCostPerKG)
+            state.shippingCostPerKG = action.payload.shippingCostPerKG;
+        },
     },
 });
 
-export const { increaseQuantity, decreaseQuantity, addColor, addProduct } =
+export const { increaseQuantity, decreaseQuantity, addColor, addProduct,addShippingCostPerKG } =
     singleProductSlice.actions;
 
 export default singleProductSlice.reducer;
