@@ -5,12 +5,12 @@ import React, { useState, useEffect, useRef } from "react";
 import { Table } from "react-bootstrap";
 import ProductVariantRow from "./ProductVariantRow";
 import { useDispatch } from "react-redux";
-import { addColor } from "@/redux/slice/singleProductSlice";
+import { addColor,increaseQuantity } from "@/redux/slice/singleProductSlice";
 // import useProductConfig from "@/helpers/productsDetails/productHelpers";
 
 const ProductVariant = ({ colorAttributes, setColorProp, productVariant }) => {
     const [selectColor, setSelectColor] = useState();
-    console.log(productVariant);
+    // console.log(productVariant);
     const [shippingRate, setShippingRate] = useState();
     const rateRef = useRef();
     const { data: productTypes, isLoading, isError, error } = useGetProductTypeQuery();
@@ -68,7 +68,7 @@ const ProductVariant = ({ colorAttributes, setColorProp, productVariant }) => {
                         </thead>
                         <tbody>
                             {productVariant?.map((variant) => {
-                                console.log(variant);
+                                // console.log(variant);
                                 return (
                                     <ProductVariantRow key={variant.element.Id} variant={variant} />
                                 );

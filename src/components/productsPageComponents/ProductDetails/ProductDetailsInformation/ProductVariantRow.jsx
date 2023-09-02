@@ -1,7 +1,10 @@
 import React, { useRef, useState } from "react";
+import { useDispatch } from "react-redux";
 
 const ProductVariantRow = ({ variant }) => {
-    console.log(variant);
+
+    const dispatch = useDispatch()
+    // console.log(variant);
     const { Value } = variant?.size;
     const { Price, Quantity } = variant?.element;
 
@@ -10,6 +13,7 @@ const ProductVariantRow = ({ variant }) => {
 
     const increaseQuantity = () => {
         setProductQuantity((quantity) => Math.min(quantity + 1, Quantity));
+        dispatch(increaseQuantity())        
     };
     const decreaseQuantity = () => {
         setProductQuantity((quantity) => Math.max(0, quantity - 1)); // Prevent negative values

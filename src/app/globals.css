@@ -34122,6 +34122,7 @@ body.rtl .account-setting {
     .logo{
         position: absolute ;
         left: 40% !important;
+        top: 0 !important;
 
     }
 }
