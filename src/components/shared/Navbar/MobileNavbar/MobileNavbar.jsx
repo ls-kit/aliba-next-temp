@@ -1,4 +1,4 @@
-import { fb_page_id, secondary_color } from "@/helpers/settings";
+import { fb_page_id, primary_color, secondary_color } from "@/helpers/settings";
 import useFirebase from "@/hooks/useFirebase";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,10 +9,10 @@ const MobileNavbar = () => {
     const { user } = useFirebase()
     console.log(user)
     return (
-        <div className="icon-nav">
+        <div className="icon-nav" >
             
                 
-                <ul className="d-flex flex-row justify-content-around align-items-center" >
+                <ul className="d-flex flex-row justify-content-around align-items-center"  style={{backgroundColor:primary_color}} >
                     <li className="onhover-div mobile-wishlist">
                         <Link href={"/products"}>
                             <i

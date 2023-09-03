@@ -7533,7 +7533,7 @@ header.header-black {
     background-color: #000;
 }
 header.header-black .main-menu .menu-left .navbar {
-    padding: 20px 45px 20px 0;
+    padding: 5px 45px 5px 0;
 }
 header.header-black .main-menu .menu-left .navbar i {
     color: #fff;
@@ -7752,7 +7752,7 @@ header.header-tools .logo-menu-part > .container {
     border-bottom: 2px solid var(--theme-color);
 }
 header.header-tools .main-menu .menu-left .navbar {
-    padding: 25px 45px 25px 0;
+    padding: 5px 45px 5px 0;
 }
 header.header-tools .main-menu .brand-logo {
     padding-top: 25px;
@@ -8610,7 +8610,7 @@ header.header-style .onhover-dropdown:before {
 }
 .main-menu .menu-left .navbar {
     display: inline-block;
-    padding: 40px 45px 40px 0;
+    padding: 10px 45px 10px 0;
 }
 .main-menu .menu-left .navbar i {
     font-size: 28px;
