@@ -11,6 +11,7 @@ const ProductDetailsMiddle = ({
     colorAttributes,
     productVariant,
     setColorProp,
+    singleAttribute
 }) => {
     // const {productConfig} = useProductConfig()
     const rating = FeaturedValues?.find((featureValue) => featureValue.Name === "rating");
@@ -41,6 +42,7 @@ const ProductDetailsMiddle = ({
                 Attributes={Attributes}
                 colorAttributes={colorAttributes}
                 setColorProp={setColorProp}
+                singleAttribute={singleAttribute}
                 productVariant={productVariant}
             />
         </div>

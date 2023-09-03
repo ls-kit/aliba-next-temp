@@ -5,7 +5,7 @@ import ProductDescription from "./ProductDescription";
 import SellerInformation from "./SellerInformation";
 
 const ProductDetailsTab = ({id,vendorId}) => {
-    console.log(vendorId)
+    // console.log(vendorId)
     const [activeTab, setActiveTab] = useState("shipping");
 
     const handleTabSelect = (tabKey) => {

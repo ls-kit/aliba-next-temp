@@ -38,6 +38,7 @@ const ProductDetails = ({ data }) => {
     dispatch(addProduct({Id, Title }))
 
 
+    // console.log(data?.data?.item)
 
 
     const ConfigAttributes = ConfiguratorAttributes(data?.data?.item);
@@ -45,7 +46,7 @@ const ProductDetails = ({ data }) => {
     const sizeAttributes = getSizeAttributes(ConfigAttributes);
     const singleAttribute = getProductGroupedAttributes(ConfigAttributes);
     const productVariant = getVariantData(colorProp, data?.data?.item);
-    // console.log(productVariant)
+    // console.log(singleAttribute)
     // console.log(colorProp)
     // console.log(ConfigAttributes)
 
@@ -101,6 +102,7 @@ const ProductDetails = ({ data }) => {
                             Attributes={Attributes}
                             ConfiguredItems={ConfiguredItems}
                             colorAttributes={colorAttributes}
+                            singleAttribute={singleAttribute}
                             setColorProp={setColorProp}
                             productVariant={productVariant}
                         />

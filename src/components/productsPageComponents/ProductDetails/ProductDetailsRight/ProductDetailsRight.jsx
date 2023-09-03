@@ -9,7 +9,7 @@ const ProductDetailsRight = ({ Id, VendorScore }) => {
     const dispatch = useDispatch()
     const {totalQuantity, totalPrice, totalWeight, shippingCostPerKG} = useSelector(state=> state.singleProductSlice)
 
-    console.log(totalQuantity, totalPrice, totalWeight, shippingCostPerKG)
+    // console.log(totalQuantity, totalPrice, totalWeight, shippingCostPerKG)
     const today = new Date();
     const deliveryStartDate =  new Date(today);
     deliveryStartDate.setDate(today.getDate() + 15); // Add 15 days to today's date for the minimum delivery date

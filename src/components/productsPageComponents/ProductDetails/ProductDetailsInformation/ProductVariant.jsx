@@ -37,7 +37,9 @@ const ProductVariant = ({ colorAttributes, setColorProp, productVariant }) => {
 
     return (
         <div className="w-100 flex flex-col justify-content-center align-items-center ">
-            <div className="flex flex-row justify-content-center align-items-center">
+            {
+                colorAttributes.length > 0 &&
+                <div className="flex flex-row justify-content-center align-items-center">
                 <h4>COLOR: {selectColor} </h4>
                 {colorAttributes?.map((attr) => {
                     const { MiniImageUrl, Value, Vid, Pid } = attr;
@@ -57,7 +59,9 @@ const ProductVariant = ({ colorAttributes, setColorProp, productVariant }) => {
                     );
                 })}
             </div>
-            {productVariant.length > 0 ? (
+            }
+           
+            {colorAttributes.length > 0 && selectColor && (
                 <div className="my-5 overflow-y-auto" style={{ height: "50vh" }}>
                     <Table class="table table-bordered ">
                         <thead>
@@ -77,11 +81,35 @@ const ProductVariant = ({ colorAttributes, setColorProp, productVariant }) => {
                         </tbody>
                     </Table>
                 </div>
-            ) : (
-                <div className="my-5 border">
-                    <h5 className="text-danger text-center p-2">পণ্যের একটি কালার সিলেক্ট করুন</h5>
-                </div>
             )}
+            {colorAttributes.length > 0 && !selectColor && (
+                <div className="my-5 border">
+                <h5 className="text-danger text-center p-2">পণ্যের একটি কালার সিলেক্ট করুন</h5>
+            </div>
+            )}
+
+            {
+                !colorAttributes.length > 0 && !selectColor && 
+                <div className="my-5 overflow-y-auto" style={{ height: "50vh" }}>
+                    <Table class="table table-bordered ">
+                        <thead>
+                            <tr>
+                                <th className="p-2 text-center">Size/Weight(g)</th>
+                                <th className="p-2 text-center">Prize</th>
+                                <th className="p-2 text-center">Quantity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {productVariant?.map((variant) => {
+                                // console.log(variant);
+                                return (
+                                    <ProductVariantRow key={variant.element.Id} variant={variant} />
+                                );
+                            })}
+                        </tbody>
+                    </Table>
+                </div>
+            }
 
             <div className="my-5">
                 <div className="w-100 d-flex flex-column justify-content-center align-items-center border">

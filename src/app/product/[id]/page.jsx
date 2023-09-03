@@ -11,7 +11,7 @@ const SingleProduct = ({ params }) => {
     // console.log(params);
     const { data, isLoading, isError, error } = useGetSingleProductQuery(`/${params.id}`);
 
-    console.log(data);
+    // console.log(data);
 
     return (
         <div>

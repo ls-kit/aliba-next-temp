@@ -32,69 +32,93 @@ export const getProductGroupedAttributes = (Attributes) => {
 export const getProductAttributes = (product) => {
     // console.log(product)
     if (_.isObject(product)) {
-        const ConfiguredItems = product.ConfiguredItems;
-        return _.isArray(ConfiguredItems) ? ConfiguredItems : [];
-    }
-    return [];
+        const Attributes = product.Attributes;
+        return _.isArray(Attributes) ? Attributes : [];
+      }
+      return [];
 };
 
 export const getColorAttributes = (Attributes) => {
     if (!_.isEmpty(Attributes)) {
         return Attributes.filter((filter) => {
-            if (filter.IsConfigurator === true) {
-                return is_colour(filter.PropertyName);
-            }
-            return false;
+          if (filter.IsConfigurator === true) {
+            return is_colour(filter.PropertyName);
+          }
+          return false;
         });
-    }
-    return [];
+      }
+      return [];
 };
 
 export const getSizeAttributes = (Attributes) => {
     if (!_.isEmpty(Attributes)) {
         return Attributes.filter((filter) => {
-            if (filter.IsConfigurator === true) {
-                return is_size(filter.PropertyName);
-            }
-            return false;
+          if (filter.IsConfigurator === true) {
+            return is_size(filter.PropertyName);
+          }
+          return false;
         });
-    }
-    return [];
+      }
+      return [];
 };
 
 export const ConfiguratorAttributes = (Product) => {
-    const Attributes = Product?.Attributes;
-    // console.log(Attributes)
-    if (Attributes?.length > 0) {
-        return Attributes.filter((filter) => filter.IsConfigurator === true);
-    }
-    return [];
+    const Attributes = getProductAttributes(Product);
+  if (Attributes.length > 0) {
+    return Attributes.filter((filter) => filter.IsConfigurator === true);
+  }
+  return [];
 };
 
 export const getVariantData = (colorProp, product) => {
-    // console.log(product)
-    const matchedData = [];
-    product?.ConfiguredItems?.map((attr) => {
-        // console.log(attr)
-        if (_.isEqual(attr?.Configurators[0], colorProp)) {
-            matchedData.push(attr);
-        }
-    });
-    // console.log(matchedData)
+    const { ConfiguredItems, Attributes } = product || {}; // Destructure ConfiguredItems and Attributes
 
+    const matchedData = [];
     const finalData = [];
 
-    for (const element of matchedData) {
-        const { Pid, Vid } = element?.Configurators[1];
-        product?.Attributes.filter((size) => {
-            if (size.Pid === Pid && size.Vid === Vid) {
-                finalData.push({ element, size });
+    if (colorProp) {
+        // Check if ConfiguredItems is defined and iterable
+        if (Array.isArray(ConfiguredItems)) {
+            ConfiguredItems.forEach((attr) => {
+                if (_.isEqual(attr?.Configurators[0], colorProp)) {
+                    matchedData.push(attr);
+                }
+            });
+        }
+    
+        for (const element of matchedData) {
+            const { Pid, Vid } = element?.Configurators[1];
+            // Check if Attributes is defined and iterable
+            if (Array.isArray(Attributes)) {
+                Attributes.forEach((size) => {
+                    if (size.Pid === Pid && size.Vid === Vid) {
+                        finalData.push({ element, size });
+                    }
+                });
             }
-        });
+        }
+    }
+
+    if (!colorProp) {
+        // Check if ConfiguredItems is defined and iterable
+        if (Array.isArray(ConfiguredItems)) {
+            ConfiguredItems.forEach((element) => {
+                const { Pid, Vid } = element?.Configurators[0];
+                // Check if Attributes is defined and iterable
+                if (Array.isArray(Attributes)) {
+                    Attributes.forEach((size) => {
+                        if (size.Pid === Pid && size.Vid === Vid) {
+                            finalData.push({ element, size });
+                        }
+                    });
+                }
+            });
+        }
     }
 
     return finalData;
 };
+
 
 
 export const formatDate =(date)=>{
