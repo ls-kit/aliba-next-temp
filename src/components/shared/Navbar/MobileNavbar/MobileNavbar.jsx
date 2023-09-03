@@ -16,20 +16,20 @@ const MobileNavbar = () => {
                     <li className="onhover-div mobile-wishlist">
                         <Link href={"/products"}>
                             <i
-                                className="fa-solid fa-heart text-black"
+                                className="fa-solid fa-heart text-white"
                                 // onclick="openSearch()"
                             ></i>
                         </Link>
                     </li>
                     <li className="onhover-div mobile-cart">
                         <Link href={"/cart"}>
-                            <i className="fa-solid fa-cart-flatbed text-black"></i>
+                            <i className="fa-solid fa-cart-flatbed text-white"></i>
                         </Link>
                         <span className="cart_qty_cls" style={{backgroundColor:secondary_color}}>2</span>
                     </li>
                     <li className="onhover-div mobile-home">
                         <Link href={"/"}>
-                            <i className="fa-solid fa-home text-black"></i>
+                            <i className="fa-solid fa-home text-white"></i>
                         </Link>
                     </li>
                 <li className="onhover-div mobile-setting">
@@ -45,19 +45,19 @@ const MobileNavbar = () => {
                         user?.email && !user?.photoURL && 
                         <Link href={"/profile"}>
 
-                        <i className="fa-solid fa-user text-black"></i>
+                        <i className="fa-solid fa-user text-white"></i>
                         </Link>
                     
                     }
                     {
                         !user?.email && <Link href={"/login"}>
-                        <i class="fa-solid fa-right-to-bracket text-black"></i>
+                        <i class="fa-solid fa-right-to-bracket text-white"></i>
                     </Link>
                     }
                     </li>
                     <li className="onhover-div mobile-messenger">
                         <a href={`https://m.me/${fb_page_id}`}>
-                        <i class="fa-brands fa-facebook-messenger text-black"></i>
+                        <i class="fa-brands fa-facebook-messenger text-white"></i>
                         </a>
                     </li>
                 </ul>

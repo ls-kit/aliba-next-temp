@@ -33,7 +33,7 @@ const MainNavbar = () => {
     return (
         <header style={{ backgroundColor:primary_color }} className="mb-1" >
             <div className="mobile-fix-option"></div>
-            <TopNavbar />
+            {/* <TopNavbar /> */}
             <div className="container position-relative "  >
                 <div className="row">
                     <div className="col-sm-12">

@@ -19,7 +19,7 @@ const SearchBox = () => {
 
     return (
         <div>
-            <div className="row height d-flex justify-content-center align-items-center">
+            <div className="row  d-flex justify-content-center align-items-center">
                 <div className="col-md-12">
                     <div className="form">
                         <i className="fa-solid fa-camera " style={{ cursor:'pointer' }}></i>

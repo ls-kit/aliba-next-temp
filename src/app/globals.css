@@ -7431,14 +7431,14 @@ header.header-absolute {
 header.header-absolute .main-menu {
     background-color: #fff;
 }
-header.header-absolute .main-menu .menu-left .navbar {
-    padding: 20px 45px 20px 0;
-}
-header.header-absolute .main-menu .brand-logo {
+/* header.header-absolute .main-menu .menu-left .navbar {
+    padding: 10px 45px 10px 0;
+} */
+/* header.header-absolute .main-menu .brand-logo {
     padding-top: 20px;
     padding-bottom: 20px;
 
-}
+} */
 
 header.header-absolute .pixelstrap > li > a {
     padding-top: 20px;
@@ -7468,7 +7468,7 @@ header.header-gym .main-menu {
     z-index: 1;
 }
 header.header-gym .main-menu .menu-left .navbar {
-    padding: 20px 45px 20px 0;
+    padding: 10px 45px 10px 0;
 }
 header.header-gym .main-menu .menu-left .navbar i {
     color: #fff;
