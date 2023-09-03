@@ -18,7 +18,7 @@ const SearchBox = () => {
 
 
     return (
-        <div>
+
             <div className="row  d-flex justify-content-center align-items-center">
                 <div className="col-md-12">
                     <div className="form">
@@ -27,7 +27,8 @@ const SearchBox = () => {
                             type="text"
                             className="form-control form-input"
                             placeholder="Search anything..."
-                            ref={searchRef}
+                        ref={searchRef}
+                        style={{ height: "30px" }}
                         />
                         <span className="left-pan" onClick={searchHandler} style={{ cursor:'pointer' }} >
                             <i className="fa-solid fa-search"></i>
@@ -35,7 +36,7 @@ const SearchBox = () => {
                     </div>
                 </div>
             </div>
-        </div>
+
     );
 };
 

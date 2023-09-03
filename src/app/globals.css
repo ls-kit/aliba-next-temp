@@ -7455,8 +7455,8 @@ header.header-absolute .pixelstrap li .lable-nav {
     top: 0;
 }
 header.header-absolute .onhover-div {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 header.header-gym {
     position: absolute;
@@ -7773,8 +7773,8 @@ header.header-tools .pixelstrap.sm-horizontal li .lable-nav {
     top: 5px;
 }
 header.header-tools .onhover-div {
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 header.header-tools.sticky {
     background-color: #fff;
@@ -8329,8 +8329,8 @@ header.header-style .onhover-dropdown:before {
 }
 .onhover-div {
     position: relative;
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     font-family: Lato, sans-serif;
 }
 .onhover-div img,
@@ -34082,13 +34082,14 @@ body.rtl .account-setting {
     position: relative;
 }
 
-.form .fa-camera {
+.form .fa-camera,.fa-search {
     position: absolute;
-    top: 13px;
+    top: 8px;
     left: 13px;
-    font-size: x-large;
+    font-size: medium;
     color: var(--theme-color);
 }
+
 
 .form span {
     position: absolute;
@@ -34103,8 +34104,10 @@ body.rtl .account-setting {
 }
 
 .left-pan i {
-    padding: 5px 0 0 10px;
+    /* padding: 5px 0 0 10px; */
     font-size: 20px;
+    top: -8px;
+    left: -10px;
 }
 
 .form-input {
