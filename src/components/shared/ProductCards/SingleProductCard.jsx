@@ -32,17 +32,7 @@ const SingleProductCard = ({ data }) => {
                             <a href="javascript:void(0)" title="Add to Wishlist">
                                 <i className="fa-solid fa-heart" aria-hidden="true"></i>
                             </a>{" "}
-                            <a
-                                href="#"
-                                data-bs-toggle="modal"
-                                data-bs-target="#quick-view"
-                                title="Quick View"
-                            >
-                                <i className="fa-solid fa-search" aria-hidden="true"></i>
-                            </a>{" "}
-                            <a href="compare.html" title="Compare">
-                                <i className="fa-solid fa-arrows-rotate"></i>
-                            </a>
+                            
                         </div>
 
                         <div className="product-detail p-3">
