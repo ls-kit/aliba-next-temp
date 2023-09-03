@@ -1,9 +1,13 @@
 import { fb_page_id, secondary_color } from "@/helpers/settings";
+import useFirebase from "@/hooks/useFirebase";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { Card } from "react-bootstrap";
 
 const MobileNavbar = () => {
+    const { user } = useFirebase()
+    console.log(user)
     return (
         <div className="icon-nav">
             
@@ -28,10 +32,28 @@ const MobileNavbar = () => {
                             <i className="fa-solid fa-home text-black"></i>
                         </Link>
                     </li>
-                    <li className="onhover-div mobile-setting">
+                <li className="onhover-div mobile-setting">
+                    {
+                        user?.email && user?.photoURL &&
                         <Link href={"/profile"}>
-                            <i className="fa-solid fa-user text-black"></i>
+
+                        <Image src={user?.photoURL} alt="user-img" width={30} height={30} className="rounded-circle" />
                         </Link>
+                        
+                    }
+                    {
+                        user?.email && !user?.photoURL && 
+                        <Link href={"/profile"}>
+
+                        <i className="fa-solid fa-user text-black"></i>
+                        </Link>
+                    
+                    }
+                    {
+                        !user?.email && <Link href={"/login"}>
+                        <i class="fa-solid fa-right-to-bracket text-black"></i>
+                    </Link>
+                    }
                     </li>
                     <li className="onhover-div mobile-messenger">
                         <a href={`https://m.me/${fb_page_id}`}>

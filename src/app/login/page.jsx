@@ -1,9 +1,11 @@
 "use client";
 
+import useFirebase from "@/hooks/useFirebase";
 import Link from "next/link";
 import React from "react";
 
 const Login = () => {
+    const {signInWithGoogle } = useFirebase()
     // console.log(process.env.base_url);
     return (
         <div>
@@ -35,14 +37,17 @@ const Login = () => {
                                         />
                                     </div>
                                     <div className="d-flex flex-row justify-content-between align-items-center">
-                                        <a href="#" className="btn btn-solid">
+                                        <button className="btn btn-solid">
                                             Login
-                                        </a>
+                                        </button>
                                         <Link href="/forget-password" className="text-danger">
                                             Forgot Password?
                                         </Link>
                                     </div>
                                 </form>
+                                <button className="btn btn-solid w-100 mt-3" onClick={signInWithGoogle}>
+                                    Signin with google
+                                </button>
                             </div>
                         </div>
                         <div className="col-lg-6 right-login">

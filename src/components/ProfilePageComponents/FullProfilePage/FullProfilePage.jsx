@@ -1,6 +1,11 @@
+'use client'
+import useFirebase from "@/hooks/useFirebase";
 import React from "react";
 
 const FullProfilePage = () => {
+
+    const {logOut} = useFirebase()
+
     return (
         <div>
             <section className="dashboard-section section-b-space user-dashboard-section">
@@ -86,7 +91,7 @@ const FullProfilePage = () => {
                                                 Security
                                             </a>{" "}
                                         </li>
-                                        <li className="nav-item">
+                                        <li className="nav-item" onClick={logOut} >
                                             <a href="" className="nav-link">
                                                 Log Out
                                             </a>{" "}
