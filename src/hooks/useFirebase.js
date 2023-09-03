@@ -30,11 +30,15 @@ const useFirebase = () => {
     const [loading, setLoading] = useState(true);
     const [userDetail, setUserDetail] = useState();
 
-    const signUpWithEmailAndPassword = async (email, password) => {
-        return await createUserWithEmailAndPassword(auth, email, password);
+    const signUpWithEmailAndPassword = async (name,email, password) => {
+         await createUserWithEmailAndPassword(auth, email, password);
+         updateName(name)
+        return
+         
+
     };
 
-    const signInWithEmail = async (email, password, location) => {
+    const signInWithEmail = async (email, password) => {
         setLoading(true);
         await signInWithEmailAndPassword(auth, email, password)
             .then((result) => {

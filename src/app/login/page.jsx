@@ -3,10 +3,23 @@
 import useFirebase from "@/hooks/useFirebase";
 import Link from "next/link";
 import React from "react";
+import { useRef } from "react";
 
 const Login = () => {
-    const {signInWithGoogle } = useFirebase()
-    // console.log(process.env.base_url);
+    const {signInWithGoogle,signInWithEmail } = useFirebase()
+
+    const emailRef = useRef()
+    const passwordRef = useRef()
+
+    const loginHandler = (e)=>{
+        e.preventDefault()
+
+        const email = emailRef.current.value;
+        const password = passwordRef.current.value;
+
+        console.log({email, password})
+        signInWithEmail(email, password)
+    }
     return (
         <div>
             <section className="login-page section-b-space">
@@ -15,7 +28,7 @@ const Login = () => {
                         <div className="col-lg-6">
                             <h3>Login</h3>
                             <div className="theme-card">
-                                <form className="theme-form">
+                                <form className="theme-form" onSubmit={loginHandler} >
                                     <div className="form-group">
                                         <label for="email">Email</label>
                                         <input
@@ -23,7 +36,8 @@ const Login = () => {
                                             className="form-control"
                                             id="email"
                                             placeholder="Email"
-                                            required=""
+                                            required
+                                            ref={emailRef}
                                         />
                                     </div>
                                     <div className="form-group">
@@ -33,11 +47,14 @@ const Login = () => {
                                             className="form-control"
                                             id="review"
                                             placeholder="Enter your password"
-                                            required=""
+                                            required
+                                            ref={passwordRef}
                                         />
                                     </div>
                                     <div className="d-flex flex-row justify-content-between align-items-center">
-                                        <button className="btn btn-solid">
+                                        <button className="btn btn-solid"
+                                        type={"submit"}
+                                        >
                                             Login
                                         </button>
                                         <Link href="/forget-password" className="text-danger">
