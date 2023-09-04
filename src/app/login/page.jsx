@@ -15,7 +15,7 @@ const Login = () => {
 
     const loginHandler = (e)=>{
         e.preventDefault()
-
+        
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
 
@@ -26,10 +26,12 @@ const Login = () => {
 
     
     
-        if (!user.auth) {
+    
+        if (!loading && user.auth) {
             router.push('/')
+            return null
         }
-        if (user.auth && !loading) {
+        if (!user.auth && !loading) {
             return (
                 <div>
                     <section className="login-page section-b-space">

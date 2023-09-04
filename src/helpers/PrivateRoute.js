@@ -5,19 +5,24 @@ import { useRouter } from 'next/navigation'
 const PrivateRoute = ({ children }) => {
     const { user,loading } = useFirebase()
     const router = useRouter()
-    console.log(children)
-   
-    if (!loading) {
+    console.log(user)
+
+
         
-        if (!user.auth) {
-            router.push('/login')
-            return
+           
+            if ( user.auth) {
             
-        }
-            else {
                 return children
-        }
-    }
+            }
+            if( !user.auth) {
+                router.push('/login')
+            return null
+                    
+            }
+        
+        
+        
+    
 };
 
 export default PrivateRoute;

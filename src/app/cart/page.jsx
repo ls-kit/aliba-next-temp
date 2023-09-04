@@ -2,12 +2,24 @@
 
 import Cart from "@/components/CartPageComponents/Cart";
 import Checkout from "@/components/CartPageComponents/Checkout";
+import PrivateRoute from "@/helpers/PrivateRoute";
+import useFirebase from "@/hooks/useFirebase";
+import { useRouter } from "next/navigation";
+
+
+
 
 const CartPage = () => {
-    return (
-
-
-        <div>
+    const { user, loading } = useFirebase()
+    const router = useRouter()
+    console.log(user)
+    if (!loading && user.auth) {
+        
+        return (
+        
+    
+    
+            <div>
             <section className="section-b-space">
                 <div className="container">
                     <div className="checkout-page">
@@ -22,8 +34,14 @@ const CartPage = () => {
                     </div>
                 </div>
             </section>
-        </div>
-    );
+            </div>
+    
+        
+            );
+    }
+    if (!loading && !user.auth) {
+        router.push('/login')
+    }
 };
 
 export default CartPage;

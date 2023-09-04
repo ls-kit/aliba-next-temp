@@ -1,11 +1,11 @@
 import React from 'react';
 
-const LoginLoading = () => {
+const CartLoading = () => {
     return (
         <div>
-            loading...
+            Loading...
         </div>
     );
 };
 
-export default LoginLoading;
+export default CartLoading;

@@ -64,56 +64,7 @@ const useFirebase = () => {
             });
     };
 
-    // const signInWithGithub = (location) => {
-    //     return signInWithPopup(auth, githubProvider)
-    //         .then((result) => {
-    //             setUser(result.user);
-    //             setLoading(false)
-    //             if (location?.state?.from) {
-    //                 return navigate(location?.state?.from);
-    //             } else {
-
-    //                 return navigate("/home");
-    //             }
-    //         })
-    //         .catch((error) => {
-    //             console.log(error);
-    //         });
-    // };
-
-    // const signInWithTwitter = (location) => {
-    //     return signInWithPopup(auth, twitterProvider)
-    //         .then((result) => {
-    //             setUser(result.user);
-    //             setLoading(false)
-    //             if (location?.state?.from) {
-    //                 return navigate(location?.state?.from);
-    //             } else {
-
-    //                 return navigate("/home");
-    //             }
-    //         })
-    //         .catch((error) => {
-    //             console.log(error);
-    //         });
-    // };
-
-    // const signInWithFacebook = (location) => {
-    //     return signInWithPopup(auth, facebookProvider)
-    //     .then((result) => {
-    //         setUser(result.user);
-    //         setLoading(false)
-    //         if (location?.state?.from) {
-    //             return navigate(location?.state?.from);
-    //         } else {
-
-    //             return navigate("/home");
-    //         }
-    //     })
-    //     .catch((error) => {
-    //         console.log(error);
-    //     });
-    // };
+    
 
     const logOut = () => {
         return signOut(auth);
