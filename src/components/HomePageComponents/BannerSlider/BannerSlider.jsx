@@ -13,7 +13,7 @@ import { base } from "@/redux/api/apiEndpoints";
 const BannerSlider = () => {
     const { data: bannersData, isLoading, isError, endpointName, error } = useGetBannersQuery();
 
-    // console.log(bannersData);
+    console.log(bannersData);
 
     const [imageHeight, setImageHeight] = useState(400);
 
@@ -61,7 +61,28 @@ const BannerSlider = () => {
                             },
                         }}
                     >
-                        {bannersData?.data?.banners?.map((bannerData) => {
+                        {window.innerWidth < 768 &&bannersData?.data?.mobileBanners?.map((bannerData) => {
+                            // console.log(bannerData);
+                            return (
+                                <SwiperSlide key={bannerData.id}>
+                                    {" "}
+                                    <Card
+                                        style={{
+                                            height: `${imageHeight}px`,
+                                        }}
+                                    >
+                                        <Image
+                                            variant="top"
+                                            src={base + bannerData.post_thumb}
+                                            alt="banner-image"
+                                            fill
+                                            priority={true}
+                                        />
+                                    </Card>
+                                </SwiperSlide>
+                            );
+                        })}
+                        {window.innerWidth >= 768 &&bannersData?.data?.banners?.map((bannerData) => {
                             // console.log(bannerData);
                             return (
                                 <SwiperSlide key={bannerData.id}>
