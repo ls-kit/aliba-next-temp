@@ -2,10 +2,11 @@
 
 import Cart from "@/components/CartPageComponents/Cart";
 import Checkout from "@/components/CartPageComponents/Checkout";
-import React from "react";
 
-const page = () => {
+const CartPage = () => {
     return (
+
+
         <div>
             <section className="section-b-space">
                 <div className="container">
@@ -25,4 +26,4 @@ const page = () => {
     );
 };
 
-export default page;
+export default CartPage;

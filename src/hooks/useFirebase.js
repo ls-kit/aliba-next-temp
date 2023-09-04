@@ -52,7 +52,7 @@ const useFirebase = () => {
             });
     };
 
-    const signInWithGoogle = async (location) => {
+    const signInWithGoogle = async () => {
         await signInWithPopup(auth, googleProvider)
             .then((result) => {
                 setUser(result.user);
