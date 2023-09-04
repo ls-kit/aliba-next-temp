@@ -3597,8 +3597,8 @@ button.btn.btn-outline:active {
     font-size: 12px;
     line-height: 14px;
     font-weight: 600;
-    top: 20%;
-    right: -8px;
+    top: -3%;
+    right: -12px;
     padding: 3px;
 }
 .addcart_btm_popup {
@@ -34133,7 +34133,7 @@ body.rtl .account-setting {
     .logo{
         position: absolute ;
         left: 40% !important;
-        top: 0 !important;
+        top: 15% !important;
 
     }
 }
