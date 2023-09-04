@@ -25,12 +25,12 @@ const SearchBox = () => {
                         <i className="fa-solid fa-camera " style={{ cursor:'pointer' }}></i>
                         <input
                             type="text"
-                            className="form-control form-input"
+                            className="form-control form-input rounded-pill "
                             placeholder="Search anything..."
                         ref={searchRef}
-                        style={{ height: "30px" }}
+                        style={{ height: "40px" }}
                         />
-                        <span className="left-pan" onClick={searchHandler} style={{ cursor:'pointer' }} >
+                        <span className="left-pan rounded-pill" onClick={searchHandler} style={{ cursor:'pointer' }} >
                             <i className="fa-solid fa-search"></i>
                         </span>
                     </div>
